@@ -1,65 +1,254 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowDown, Download, Sparkles, Code, Database, Cloud, Smartphone } from "lucide-react";
+import Link from "next/link";
+
+const skills = [
+  { name: "Frontend", icon: Code, items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+  { name: "Backend", icon: Database, items: ["Node.js", "Python", "PostgreSQL", "MongoDB"] },
+  { name: "Cloud", icon: Cloud, items: ["AWS", "Docker", "Kubernetes", "CI/CD"] },
+  { name: "Mobile", icon: Smartphone, items: ["React Native", "Flutter", "iOS", "Android"] },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative">
+      {/* Hero Section */}
+      <section className="min-h-[calc(100vh-80px)] flex items-center justify-center relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--primary)]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--secondary)]/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--accent)]/10 rounded-full blur-3xl" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-sm text-[var(--primary)] mb-8"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>Available for opportunities</span>
+            </motion.div>
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            >
+              Hi, I&apos;m{" "}
+              <span className="gradient-text">Saloni Dabgar</span>
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl text-[var(--muted)] mb-8 max-w-2xl mx-auto"
+            >
+              A passionate software developer crafting beautiful, performant, and user-centric digital experiences
+            </motion.p>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            >
+              <Link href="/projects">
+                <motion.button
+                  className="px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white font-medium rounded-full"
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(99, 102, 241, 0.3)" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View My Work
+                </motion.button>
+              </Link>
+              <motion.a
+                href="/resume.pdf"
+                className="px-8 py-4 border border-[var(--border)] rounded-full font-medium flex items-center gap-2 hover:bg-[var(--card)] transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Download className="w-5 h-5" />
+                Download Resume
+              </motion.a>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="p-3 rounded-full border border-[var(--border)] text-[var(--muted)]"
+              >
+                <ArrowDown className="w-5 h-5" />
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
-      </main>
+      </section>
+
+      {/* About Section */}
+      <section className="py-24 bg-[var(--card)]">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid md:grid-cols-2 gap-12 items-center"
+          >
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                About <span className="gradient-text">Me</span>
+              </h2>
+              <div className="space-y-4 text-[var(--muted)] leading-relaxed">
+                <p>
+                  I&apos;m a full-stack software developer with a passion for creating innovative solutions
+                  that make a difference. With expertise in modern web technologies and cloud infrastructure,
+                  I bring ideas to life through clean, efficient code.
+                </p>
+                <p>
+                  My journey in software development started with curiosity and has evolved into a
+                  deep commitment to building products that users love. I believe in writing code
+                  that&apos;s not just functional, but maintainable and scalable.
+                </p>
+                <p>
+                  When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to
+                  open source projects, or sharing knowledge through technical writing.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <motion.div
+                className="aspect-square rounded-2xl bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] p-1"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-full h-full rounded-2xl bg-[var(--card)] flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="text-8xl mb-4">👩‍💻</div>
+                    <p className="text-[var(--muted)]">Your photo here</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating badges */}
+              <motion.div
+                className="absolute -top-4 -right-4 px-4 py-2 bg-[var(--background)] rounded-full border border-[var(--border)] shadow-lg"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3, delay: 0 }}
+              >
+                <span className="text-sm font-medium">5+ Years Exp</span>
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-4 -left-4 px-4 py-2 bg-[var(--background)] rounded-full border border-[var(--border)] shadow-lg"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3, delay: 1 }}
+              >
+                <span className="text-sm font-medium">50+ Projects</span>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Technical <span className="gradient-text">Skills</span>
+            </h2>
+            <p className="text-[var(--muted)] max-w-2xl mx-auto">
+              I work with a diverse set of technologies to build robust and scalable applications
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="p-6 rounded-2xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)]/50 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center mb-4">
+                  <skill.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-semibold text-lg mb-3">{skill.name}</h3>
+                <ul className="space-y-2">
+                  {skill.items.map((item) => (
+                    <li key={item} className="text-[var(--muted)] text-sm flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-[var(--card)]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Let&apos;s Build Something <span className="gradient-text">Amazing</span>
+            </h2>
+            <p className="text-[var(--muted)] mb-8 max-w-xl mx-auto">
+              Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss how we can work together.
+            </p>
+            <motion.a
+              href="mailto:hello@salonidabgar.com"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white font-medium rounded-full"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(99, 102, 241, 0.3)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get In Touch
+            </motion.a>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
