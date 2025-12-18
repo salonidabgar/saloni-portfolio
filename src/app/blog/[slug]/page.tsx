@@ -5,7 +5,6 @@ import { Calendar, Clock, ArrowLeft, Twitter, Linkedin, Link as LinkIcon } from 
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
-// This would typically come from a CMS or markdown files
 const blogPosts: Record<string, {
   title: string;
   excerpt: string;
@@ -13,163 +12,14 @@ const blogPosts: Record<string, {
   readTime: string;
   category: string;
   tags: string[];
-  content: string;
 }> = {
-  "building-scalable-microservices": {
-    title: "Building Scalable Microservices: A Practical Guide",
-    excerpt: "Learn how to design and implement microservices architecture that can scale with your business needs.",
-    date: "2024-12-10",
-    readTime: "12 min read",
-    category: "Architecture",
-    tags: ["Microservices", "Docker", "Kubernetes", "Node.js"],
-    content: `
-# Building Scalable Microservices: A Practical Guide
-
-Microservices architecture has become the de facto standard for building large-scale applications. In this comprehensive guide, we'll explore the key principles and best practices for building microservices that can scale with your business needs.
-
-## What Are Microservices?
-
-Microservices are an architectural approach where an application is built as a collection of small, independent services. Each service:
-
-- Runs in its own process
-- Communicates via lightweight mechanisms (usually HTTP/REST or messaging)
-- Is independently deployable
-- Can be written in different programming languages
-
-## Key Principles
-
-### 1. Single Responsibility
-
-Each microservice should have a single, well-defined responsibility. This makes services easier to understand, develop, and maintain.
-
-### 2. Loose Coupling
-
-Services should be loosely coupled, meaning changes to one service should not require changes to others. This is achieved through well-defined APIs and contracts.
-
-### 3. High Cohesion
-
-Related functionality should be grouped together within a single service. This reduces the need for cross-service communication.
-
-## Implementation Patterns
-
-### Service Discovery
-
-In a microservices architecture, services need to find each other. Service discovery patterns help with this:
-
-- **Client-side discovery**: Clients query a service registry
-- **Server-side discovery**: Load balancer queries the registry
-
-### API Gateway
-
-An API Gateway provides a single entry point for clients:
-
-\`\`\`javascript
-const express = require('express');
-const proxy = require('express-http-proxy');
-
-const app = express();
-
-app.use('/users', proxy('http://user-service:3001'));
-app.use('/orders', proxy('http://order-service:3002'));
-app.use('/products', proxy('http://product-service:3003'));
-
-app.listen(3000);
-\`\`\`
-
-### Circuit Breaker
-
-Prevent cascade failures with the circuit breaker pattern:
-
-\`\`\`javascript
-const CircuitBreaker = require('opossum');
-
-const options = {
-  timeout: 3000,
-  errorThresholdPercentage: 50,
-  resetTimeout: 30000
-};
-
-const breaker = new CircuitBreaker(asyncFunction, options);
-
-breaker.fire()
-  .then(result => console.log(result))
-  .catch(err => console.error(err));
-\`\`\`
-
-## Best Practices
-
-1. **Design for failure**: Assume services will fail and design accordingly
-2. **Implement health checks**: Enable monitoring and auto-healing
-3. **Use asynchronous communication**: Reduce coupling with message queues
-4. **Containerize services**: Use Docker for consistent deployments
-5. **Implement proper logging**: Centralized logging is essential
-
-## Conclusion
-
-Building scalable microservices requires careful planning and adherence to best practices. By following the principles outlined in this guide, you can create systems that are resilient, maintainable, and scalable.
-    `,
-  },
-  "mastering-typescript-generics": {
-    title: "Mastering TypeScript Generics for Better Code",
-    excerpt: "Deep dive into TypeScript generics and how they can help you write more reusable, type-safe code.",
-    date: "2024-11-28",
-    readTime: "8 min read",
-    category: "TypeScript",
-    tags: ["TypeScript", "JavaScript", "Programming"],
-    content: `
-# Mastering TypeScript Generics for Better Code
-
-TypeScript generics are one of the most powerful features of the language. They allow you to write flexible, reusable code while maintaining type safety.
-
-## What Are Generics?
-
-Generics allow you to write code that works with any type while still providing type checking. They're like parameters for types.
-
-## Basic Generic Functions
-
-\`\`\`typescript
-function identity<T>(arg: T): T {
-  return arg;
-}
-
-const result = identity<string>("hello"); // type is string
-const number = identity(42); // type is inferred as number
-\`\`\`
-
-## Generic Interfaces
-
-\`\`\`typescript
-interface Repository<T> {
-  getAll(): T[];
-  getById(id: string): T | undefined;
-  create(item: T): T;
-  update(id: string, item: T): T;
-  delete(id: string): void;
-}
-\`\`\`
-
-## Constraints
-
-You can constrain generics to certain types:
-
-\`\`\`typescript
-interface HasLength {
-  length: number;
-}
-
-function logLength<T extends HasLength>(item: T): void {
-  console.log(item.length);
-}
-
-logLength("hello"); // OK
-logLength([1, 2, 3]); // OK
-logLength(123); // Error: number doesn't have length
-\`\`\`
-
-## Conclusion
-
-Mastering generics will significantly improve your TypeScript code quality and reusability.
-    `,
+  "what-yoga-means-to-me": {
+    title: "What Yoga Means to Me",
+    excerpt: "Yoga is not just physical exercise for me. It's a deep spiritual sadhana — my way of using this human body to touch a level of peak consciousness.",
+    date: "2024-12-17",
+    readTime: "5 min read",
+    category: "Life",
+    tags: ["Yoga", "Spirituality", "Mindfulness", "Personal Growth"],
   },
 };
 
@@ -194,7 +44,7 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen py-12">
-      <article className="max-w-4xl mx-auto px-6">
+      <article className="max-w-3xl mx-auto px-6">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -237,10 +87,6 @@ export default function BlogPost() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             {post.title}
           </h1>
-
-          <p className="text-xl text-[var(--muted)] mb-6">
-            {post.excerpt}
-          </p>
 
           <div className="flex flex-wrap gap-2 mb-8">
             {post.tags.map((tag) => (
@@ -292,10 +138,153 @@ export default function BlogPost() {
           transition={{ delay: 0.2 }}
           className="prose prose-lg dark:prose-invert max-w-none"
         >
-          <div
-            className="text-[var(--foreground)] leading-relaxed space-y-6"
-            dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
-          />
+          <div className="space-y-8 text-[var(--foreground)]">
+            {/* More Than Movement */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">More Than Movement</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Yoga is not just physical exercise for me. It&apos;s a deep spiritual sadhana.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4 italic">
+                (I don&apos;t particularly like using the word &quot;spiritual&quot; — it feels overused. But whenever I do use it, it&apos;s simply to convey that this is something beyond the physical. Something even I haven&apos;t fully understood yet.)
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed">
+                So, coming back.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mt-4">
+                Yoga is my way of using the greatest gift I&apos;ve been given — this human body — to touch a level of peak consciousness. To transcend. To become more than I was yesterday.
+              </p>
+            </section>
+
+            {/* The Morning Reset */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">The Morning Reset</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                It is the time when I find peace. When I prepare myself for the day&apos;s chaos before it even begins.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-2">
+                First, yog shuts down the outer noises — the world fades.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Then, slowly, the inner chatter quiets too.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                And in that stillness, I can feel awareness flowing.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed">
+                I can feel knowledge and wisdom moving through me, as if some higher power is gently guiding my thoughts. In those moments, I receive clarity — powerful, undeniable clarity that cuts through whatever confusion I&apos;ve been carrying.
+              </p>
+            </section>
+
+            {/* Five Years in the Making */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">Five Years in the Making</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Here&apos;s something strange.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                I have been thinking about writing since 2020. Planning to publish. Telling myself &quot;someday.&quot; But I never could. Something always held me back.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Until today.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Something unlocked in me this morning — after five years of waiting. And now, here I am, finally putting words to what yoga means to me.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed">
+                I don&apos;t fully understand what shifted. But I know yoga had everything to do with it.
+              </p>
+            </section>
+
+            {/* Living in Sakshi Bhaav */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">Living in Sakshi Bhaav</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Throughout the day, yoga gives me a quiet superpower.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                The power to watch my thoughts — good or bad — without becoming them. To stay in sakshi bhaav, as a mere observer. To let thoughts drift by like clouds passing through an open sky.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed font-medium">
+                They come. They go. And I remain.
+              </p>
+            </section>
+
+            {/* Returning to the Breath */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">Returning to the Breath</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Whenever I lose touch with the present moment (and I do, often), I have a simple anchor.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                I bring my focus back to my nostrils. I do a few rounds of So Hum.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed">
+                That&apos;s it. That&apos;s enough to come home.
+              </p>
+            </section>
+
+            {/* Yoga Off the Mat */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">Yoga Off the Mat</h2>
+              <div className="text-[var(--muted)] leading-relaxed space-y-1 mb-4">
+                <p>I chant while I drive.</p>
+                <p>I chant while I eat.</p>
+                <p>I chant while I work in office.</p>
+                <p>I chant while I walk.</p>
+              </div>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                I always try to bring myself back to the present moment — through breath, through chants, through raags, through devotional songs.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed font-medium">
+                Yoga isn&apos;t something I do for an hour in the morning. It&apos;s how I move through my entire day.
+              </p>
+            </section>
+
+            {/* The Honest Truth */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">The Honest Truth</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                I am not perfect.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Not in my thoughts. Not in my words. Not in my actions. But you know what? That imperfection is exactly what gives me space to grow.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                In my yog sadhana too, not every day is the same. There are days when maya overpowers. When the mann wanders endlessly. When I don&apos;t feel like sitting on the mat at all.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed font-medium">
+                But that&apos;s where discipline kicks in.
+              </p>
+            </section>
+
+            {/* The Call That Kept Coming Back */}
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">The Call That Kept Coming Back</h2>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Here&apos;s something I&apos;ve realized.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                Yog has tried to draw me towards itself several times in my life. It has knocked on my door again and again. And I? I have drifted from it, come back to it, drifted again. Nothing was ever consistent.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                But now, something feels different.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
+                I desperately want to make this an everyday affair. No matter what. No excuses. No running away. No &quot;tomorrow.&quot;
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed font-medium">
+                This is my internal calling. And this time, I&apos;m answering it.
+              </p>
+            </section>
+
+            {/* Closing */}
+            <section className="border-t border-[var(--border)] pt-8 mt-8">
+              <p className="text-[var(--muted)] leading-relaxed italic text-lg">
+                The mat doesn&apos;t care if I show up broken or whole. It just asks me to show up. Tomorrow, I will. And the day after. One breath at a time, until this stops being discipline and starts becoming who I am.
+              </p>
+            </section>
+          </div>
         </motion.div>
 
         {/* Author Card */}
@@ -307,16 +296,16 @@ export default function BlogPost() {
         >
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center text-2xl">
-              👩‍💻
+              🧘‍♀️
             </div>
             <div>
               <h3 className="font-semibold text-lg">Saloni Dabgar</h3>
               <p className="text-[var(--muted)] text-sm mb-3">
-                Software Developer & Tech Writer
+                Software Developer & Seeker
               </p>
               <p className="text-[var(--muted)] text-sm">
-                I write about software development, system design, and building great products.
-                Follow me for more content!
+                Writing about life, technology, yoga, and the journey of becoming.
+                Follow along as I explore the intersection of code and consciousness.
               </p>
             </div>
           </div>
@@ -324,22 +313,4 @@ export default function BlogPost() {
       </article>
     </div>
   );
-}
-
-function formatContent(content: string): string {
-  return content
-    .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')
-    .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>')
-    .replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-6 mb-3">$1</h3>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre class="bg-[var(--background)] border border-[var(--border)] rounded-xl p-4 my-4 overflow-x-auto"><code class="text-sm font-mono">$2</code></pre>')
-    .replace(/`(.*?)`/g, '<code class="px-1.5 py-0.5 bg-[var(--background)] rounded text-sm font-mono">$1</code>')
-    .replace(/^- (.*$)/gm, '<li class="ml-4 list-disc text-[var(--muted)]">$1</li>')
-    .replace(/^\d+\. (.*$)/gm, '<li class="ml-4 list-decimal text-[var(--muted)]">$1</li>')
-    .replace(/\n\n/g, '</p><p class="text-[var(--muted)] leading-relaxed">')
-    .replace(/^(.*)$/gm, (match) => {
-      if (match.startsWith('<')) return match;
-      return `<p class="text-[var(--muted)] leading-relaxed">${match}</p>`;
-    });
 }
