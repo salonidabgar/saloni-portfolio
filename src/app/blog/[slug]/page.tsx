@@ -13,6 +13,14 @@ const blogPosts: Record<string, {
   category: string;
   tags: string[];
 }> = {
+  "shedding-26-kilos-finding-myself": {
+    title: "Shedding 26 Kilos, Finding Myself: A Journey That's Only Half Done",
+    excerpt: "For years, I carried more than just weight. I carried exhaustion, brain fog, and the quiet frustration of knowing I wasn't operating at my full potential.",
+    date: "2024-12-26",
+    readTime: "6 min read",
+    category: "Life",
+    tags: ["Health", "Weight Loss", "Personal Growth", "Fitness"],
+  },
   "what-yoga-means-to-me": {
     title: "What Yoga Means to Me",
     excerpt: "Yoga is not just physical exercise for me. It's a deep spiritual sadhana — my way of using this human body to touch a level of peak consciousness.",
@@ -138,6 +146,127 @@ export default function BlogPost() {
           transition={{ delay: 0.2 }}
           className="prose prose-lg dark:prose-invert max-w-none"
         >
+          {slug === "shedding-26-kilos-finding-myself" && (
+            <div className="space-y-8 text-[var(--foreground)]">
+              {/* Introduction */}
+              <section>
+                <p className="text-[var(--muted)] leading-relaxed mb-4">
+                  For years, I carried more than just weight. I carried exhaustion, brain fog, and the quiet frustration of knowing I wasn&apos;t operating at my full potential. My body felt like excess baggage—slowing down my thoughts, limiting what I could accomplish in a day, and chipping away at my confidence one health scare at a time.
+                </p>
+                <p className="text-[var(--muted)] leading-relaxed mb-4">
+                  Last September, reality hit hard. A thyroid diagnosis. Fatty liver, grade 1. And lurking in the background, a family history of diabetes that I refuse—absolutely refuse—to let become my inheritance.
+                </p>
+                <p className="text-[var(--muted)] leading-relaxed font-medium">
+                  Things were getting worse. Something had to change.
+                </p>
+              </section>
+
+              {/* The Eleven Reasons */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">The Eleven Reasons</h2>
+
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">1. My body was working against my brain.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      I could feel it—the mental sluggishness, the afternoon crashes, the inability to sustain focus. I knew my mind was capable of more, but my body wasn&apos;t letting it happen.
+                    </p>
+
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">2. Health problems kept knocking.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      Thyroid. Fatty liver. Warning signs I couldn&apos;t ignore anymore. My body was sending me messages, and I was finally ready to listen.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">3. I&apos;m breaking a generational cycle.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      Diabetes runs in my family. But genetics isn&apos;t destiny—not if I have anything to say about it. This ends with me.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">4. Spiritual lightness requires physical lightness.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      In Ashtanga yoga, there&apos;s a yama called Aparigraha—non-attachment, withdrawal from senses. For someone like me, who struggled with emotional eating and stress eating, this was more than philosophy. It was a personal battle. I could eat clean 99% of the time, but that 1%? Complete disaster. Conquering that 1% became part of the journey.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">5. Adventure demands a capable body.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      I love travel. I crave adventure. And I want a body that says yes to every trail, every summit, every spontaneous detour—not one that holds me back.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">6. I have things to do in this world.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      There&apos;s something deep inside me that knows I&apos;m meant to contribute—to myself, to society, to something larger. Those ambitions require energy, stamina, and presence. A fit body isn&apos;t vanity; it&apos;s infrastructure.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">7. I wanted to meet a version of myself I&apos;d never seen.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      What does she look like? How does she move through the world? What is she capable of? I&apos;m still finding out. This is a work in progress, and I&apos;m here for every step of it.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">8. I&apos;m rewriting a lifelong story.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      I was the overweight kid. The obese teenager. At my present body weight today, I&apos;m back to what I weighed thirteen years ago in 2012. But this time, I&apos;m not just losing weight—I&apos;m gaining something I never truly had: the feeling of being healthy from the inside out.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">9. I needed to prove something to myself.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      Not to anyone else. To me. That when I decide something, I follow through. That my word to myself means something.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">10. I have physical goals that require a physical foundation.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      Calisthenics. Hyrox. Movements that demand strength, control, and a body that cooperates. I&apos;m building that body now.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[var(--foreground)]">11. I&apos;m chasing the peak of human consciousness.</h3>
+                    <p className="text-[var(--muted)] leading-relaxed">
+                      This might sound lofty, but I believe physical health is a gateway to mental clarity, and mental clarity is a gateway to something even higher. I want to experience what&apos;s possible when body, mind, and spirit are all aligned.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* The Scoreboard */}
+              <section>
+                <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">The Scoreboard</h2>
+                <p className="text-[var(--muted)] leading-relaxed mb-4 text-xl font-medium">
+                  13 kilos lost. 13 more to go.
+                </p>
+                <p className="text-[var(--muted)] leading-relaxed">
+                  I&apos;m exactly halfway there. And honestly? The person writing this today already feels like someone new.
+                </p>
+              </section>
+
+              {/* Closing */}
+              <section className="border-t border-[var(--border)] pt-8 mt-8">
+                <p className="text-[var(--muted)] leading-relaxed italic text-lg">
+                  This isn&apos;t just about a number on a scale. It&apos;s about reclaiming my energy, my potential, and my future. One kilo at a time.
+                </p>
+              </section>
+            </div>
+          )}
+
+          {slug === "what-yoga-means-to-me" && (
           <div className="space-y-8 text-[var(--foreground)]">
             {/* More Than Movement */}
             <section>
@@ -285,6 +414,7 @@ export default function BlogPost() {
               </p>
             </section>
           </div>
+          )}
         </motion.div>
 
         {/* Author Card */}

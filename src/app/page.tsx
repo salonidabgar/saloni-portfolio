@@ -5,10 +5,10 @@ import { ArrowDown, Download, Sparkles, Code, Database, Cloud, Smartphone } from
 import Link from "next/link";
 
 const skills = [
-  { name: "Frontend", icon: Code, items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { name: "Backend", icon: Database, items: ["Node.js", "Python", "PostgreSQL", "MongoDB"] },
-  { name: "Cloud", icon: Cloud, items: ["AWS", "Docker", "Kubernetes", "CI/CD"] },
-  { name: "Mobile", icon: Smartphone, items: ["React Native", "Flutter", "iOS", "Android"] },
+  { name: "Languages", icon: Code, items: ["C", "C++", "Python", "JavaScript"] },
+  { name: "Backend", icon: Database, items: ["FastAPI", "React", "PostgreSQL", "Redis"] },
+  { name: "Embedded", icon: Cloud, items: ["FreeRTOS", "Linux", "CMake", "NGINX"] },
+  { name: "Tools", icon: Smartphone, items: ["Git", "Docker", "GitLab", "GenAI Tools"] },
 ];
 
 const containerVariants = {
@@ -125,18 +125,19 @@ export default function Home() {
               </h2>
               <div className="space-y-4 text-[var(--muted)] leading-relaxed">
                 <p>
-                  I&apos;m a full-stack software developer with a passion for creating innovative solutions
-                  that make a difference. With expertise in modern web technologies and cloud infrastructure,
-                  I bring ideas to life through clean, efficient code.
+                  I&apos;m a Software Developer at Jaguar Land Rover, working on embedded automotive systems.
+                  I graduated from IIT Kanpur with a B.Tech degree, where I developed a strong foundation
+                  in computer science and software engineering.
                 </p>
                 <p>
-                  My journey in software development started with curiosity and has evolved into a
-                  deep commitment to building products that users love. I believe in writing code
-                  that&apos;s not just functional, but maintainable and scalable.
+                  My expertise spans from low-level embedded systems programming in C/C++ to building
+                  full-stack web applications. I&apos;ve worked on automotive software including SOTA controllers,
+                  vehicle communication systems, and real-time data processing on FreeRTOS.
                 </p>
                 <p>
-                  When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to
-                  open source projects, or sharing knowledge through technical writing.
+                  I&apos;ve also explored blockchain development at the University of Zurich and built
+                  production-ready applications using Python, FastAPI, and React. When I&apos;m not coding,
+                  you&apos;ll find me practicing yoga or exploring new technologies.
                 </p>
               </div>
             </div>
@@ -161,7 +162,7 @@ export default function Home() {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 0 }}
               >
-                <span className="text-sm font-medium">5+ Years Exp</span>
+                <span className="text-sm font-medium">IIT Kanpur</span>
               </motion.div>
 
               <motion.div
@@ -239,7 +240,7 @@ export default function Home() {
               Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss how we can work together.
             </p>
             <motion.a
-              href="mailto:hello@salonidabgar.com"
+              href="mailto:dabgarsaloni11@gmail.com"
               className="inline-block px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white font-medium rounded-full"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(99, 102, 241, 0.3)" }}
               whileTap={{ scale: 0.95 }}

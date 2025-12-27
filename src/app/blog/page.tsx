@@ -6,6 +6,16 @@ import Link from "next/link";
 
 const blogPosts = [
   {
+    slug: "shedding-26-kilos-finding-myself",
+    title: "Shedding 26 Kilos, Finding Myself: A Journey That's Only Half Done",
+    excerpt: "For years, I carried more than just weight. I carried exhaustion, brain fog, and the quiet frustration of knowing I wasn't operating at my full potential. Last September, reality hit hard. Something had to change.",
+    date: "2024-12-26",
+    readTime: "6 min read",
+    category: "Life",
+    tags: ["Health", "Weight Loss", "Personal Growth", "Fitness"],
+    featured: true,
+  },
+  {
     slug: "what-yoga-means-to-me",
     title: "What Yoga Means to Me",
     excerpt: "Yoga is not just physical exercise for me. It's a deep spiritual sadhana — my way of using this human body to touch a level of peak consciousness, to transcend, to become more than I was yesterday.",
@@ -60,7 +70,7 @@ export default function Blog() {
               >
                 {/* Image placeholder */}
                 <div className="aspect-[3/1] bg-gradient-to-br from-[var(--primary)]/20 via-[var(--secondary)]/10 to-[var(--accent)]/20 flex items-center justify-center">
-                  <div className="text-6xl">🧘‍♀️</div>
+                  <div className="text-6xl">{post.slug === "shedding-26-kilos-finding-myself" ? "💪" : "🧘‍♀️"}</div>
                 </div>
 
                 <div className="p-8">
