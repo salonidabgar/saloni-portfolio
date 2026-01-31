@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award, Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Briefcase, GraduationCap, Award, Calendar, MapPin, ArrowUpRight } from "lucide-react";
 
 const experiences = [
   {
@@ -20,6 +20,8 @@ const experiences = [
       "Created shared memory IPC mechanism optimizing real-time data flow",
     ],
     technologies: ["C", "C++", "FreeRTOS", "Linux", "Boost.Beast", "OpenSSL"],
+    color: "from-emerald-500 to-teal-500",
+    emoji: "🚗",
   },
   {
     title: "Blockchain Developer Intern",
@@ -37,6 +39,8 @@ const experiences = [
       "Prepared thorough report on business, legal and market analysis",
     ],
     technologies: ["Solidity", "Next.js", "Ethereum", "Uniswap V3", "Remix", "Marlowe"],
+    color: "from-purple-500 to-pink-500",
+    emoji: "⛓️",
   },
   {
     title: "Research Intern",
@@ -54,6 +58,8 @@ const experiences = [
       "Integrated CI/CD pipeline using GitHub Actions for automated testing and deployment",
     ],
     technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "Docker", "WebSocket"],
+    color: "from-blue-500 to-indigo-500",
+    emoji: "📋",
   },
 ];
 
@@ -63,53 +69,64 @@ const education = [
     institution: "Indian Institute of Technology Kanpur",
     period: "2019 - 2023",
     description: "Material Science and Engineering",
-    achievements: ["CPI: 8/10", "SURGE Research Program", "Programming Club Member"],
+    achievements: ["CPI: 8/10", "SURGE Research", "Programming Club"],
+    emoji: "🎓",
+    color: "from-violet-500 to-purple-500",
   },
   {
     degree: "Class XII (CBSE)",
     institution: "Delhi Public School, Eldeco, Lucknow",
     period: "2018",
-    description: "Higher Secondary Education with focus on Science stream",
-    achievements: ["Score: 93.6%"],
+    description: "Higher Secondary Education - Science Stream",
+    achievements: ["93.6%"],
+    emoji: "📚",
+    color: "from-amber-500 to-orange-500",
   },
   {
     degree: "Class X (CBSE)",
     institution: "Delhi Public School, Eldeco, Lucknow",
     period: "2016",
     description: "Secondary Education",
-    achievements: ["CGPA: 9.8/10"],
+    achievements: ["9.8 CGPA"],
+    emoji: "🏫",
+    color: "from-emerald-500 to-green-500",
   },
 ];
 
 const certifications = [
-  { name: "Deep Learning", issuer: "Coursera", year: "2023" },
-  { name: "Machine Learning Applications", issuer: "Coursera", year: "2023" },
-  { name: "Natural Language Processing", issuer: "Coursera", year: "2022" },
-  { name: "Data Structures and Algorithms", issuer: "Coursera", year: "2021" },
+  { name: "Deep Learning", issuer: "Coursera", year: "2023", emoji: "🧠" },
+  { name: "Machine Learning Applications", issuer: "Coursera", year: "2023", emoji: "🤖" },
+  { name: "Natural Language Processing", issuer: "Coursera", year: "2022", emoji: "💬" },
+  { name: "Data Structures & Algorithms", issuer: "Coursera", year: "2021", emoji: "📊" },
 ];
 
 export default function Experience() {
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[var(--secondary)]/10 rounded-full blur-3xl" />
+          <div className="absolute inset-0 pattern-grid opacity-40" />
+          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[var(--primary)]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[var(--secondary)]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              My <span className="gradient-text">Experience</span>
+            <span className="inline-block text-sm font-mono text-[var(--accent)] mb-4">
+              CAREER
+            </span>
+            <h1 className="text-5xl md:text-6xl font-display mb-6">
+              My <span className="text-accent-serif">journey</span>
             </h1>
-            <p className="text-[var(--muted)] max-w-2xl mx-auto text-lg">
-              A journey through my professional career, education, and continuous learning
+            <p className="text-[var(--muted)] text-xl leading-relaxed">
+              From IIT Kanpur to Jaguar Land Rover — a path through embedded systems,
+              blockchain, and everything in between.
             </p>
           </motion.div>
         </div>
@@ -122,74 +139,98 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 mb-12"
+            className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-white" />
+            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)]">
+              <Briefcase className="w-7 h-7 text-white" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Work Experience</h2>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-display">Work Experience</h2>
+              <p className="text-[var(--muted)] text-sm">Professional roles & internships</p>
+            </div>
           </motion.div>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-[var(--border)] hidden md:block" />
+            {/* Timeline line - gradient */}
+            <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] hidden md:block" />
 
-            <div className="space-y-12">
+            <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.15 }}
                   className="relative"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-6 top-8 w-5 h-5 rounded-full bg-[var(--primary)] border-4 border-[var(--background)] hidden md:block" />
+                  <div className="absolute left-5 top-8 w-5 h-5 rounded-full bg-[var(--background)] border-4 border-[var(--primary)] hidden md:flex items-center justify-center z-10">
+                    <div className="w-2 h-2 rounded-full bg-[var(--primary)]" />
+                  </div>
 
-                  <div className="md:ml-20 p-6 rounded-2xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)]/30 transition-colors">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold">{exp.title}</h3>
-                        <p className="text-[var(--primary)] font-medium">{exp.company}</p>
+                  <motion.div
+                    className="md:ml-20 p-6 md:p-8 rounded-2xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)]/30 transition-all group"
+                    whileHover={{ y: -4 }}
+                  >
+                    {/* Header */}
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                      <div className="flex items-start gap-4">
+                        <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${exp.color} flex items-center justify-center text-2xl`}>
+                          {exp.emoji}
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold group-hover:text-[var(--primary)] transition-colors">
+                            {exp.title}
+                          </h3>
+                          <p className="text-[var(--primary)] font-medium">{exp.company}</p>
+                          <div className="flex flex-wrap items-center gap-3 mt-2 text-sm text-[var(--muted)]">
+                            <span className="flex items-center gap-1">
+                              <Calendar className="w-3.5 h-3.5" />
+                              {exp.period}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-3.5 h-3.5" />
+                              {exp.location}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex flex-wrap gap-3 text-sm text-[var(--muted)]">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {exp.period}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          {exp.location}
-                        </span>
-                      </div>
+                      <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)]">
+                        {exp.type}
+                      </span>
                     </div>
 
-                    <p className="text-[var(--muted)] mb-4">{exp.description}</p>
+                    <p className="text-[var(--muted)] mb-6 leading-relaxed">{exp.description}</p>
 
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold mb-2">Key Achievements:</h4>
-                      <ul className="space-y-1">
+                    {/* Achievements */}
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                        Key Achievements
+                      </h4>
+                      <ul className="grid md:grid-cols-2 gap-2">
                         {exp.achievements.map((achievement, i) => (
                           <li key={i} className="text-sm text-[var(--muted)] flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--secondary)] mt-2 flex-shrink-0" />
-                            {achievement}
+                            <ArrowUpRight className="w-3.5 h-3.5 mt-1 flex-shrink-0 text-[var(--primary)]" />
+                            <span>{achievement}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
+                    {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-xs rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20"
+                          className="px-3 py-1.5 text-xs rounded-lg bg-[var(--background)] text-[var(--muted)] border border-[var(--border-light)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -198,21 +239,27 @@ export default function Experience() {
       </section>
 
       {/* Education */}
-      <section className="py-16 bg-[var(--card)]">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[var(--card)]" />
+        <div className="absolute inset-0 pattern-dots opacity-30" />
+
+        <div className="max-w-6xl mx-auto px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 mb-12"
+            className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)] flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-white" />
+            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)]">
+              <GraduationCap className="w-7 h-7 text-white" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Education</h2>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-display">Education</h2>
+              <p className="text-[var(--muted)] text-sm">Academic background</p>
+            </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
@@ -220,25 +267,36 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="p-6 rounded-2xl bg-[var(--background)] border border-[var(--border)] hover:border-[var(--secondary)]/30 transition-all"
               >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="text-lg font-semibold">{edu.degree}</h3>
-                  <span className="text-sm text-[var(--muted)] whitespace-nowrap">{edu.period}</span>
-                </div>
-                <p className="text-[var(--secondary)] font-medium mb-2">{edu.institution}</p>
-                <p className="text-sm text-[var(--muted)] mb-4">{edu.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {edu.achievements.map((achievement, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)]"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
-                </div>
+                <motion.div
+                  className="group h-full p-6 rounded-2xl bg-[var(--background)] border border-[var(--border)] hover:border-[var(--secondary)]/40 transition-all"
+                  whileHover={{ y: -4 }}
+                >
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${edu.color} flex items-center justify-center text-2xl mb-4`}>
+                    {edu.emoji}
+                  </div>
+
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="font-semibold group-hover:text-[var(--secondary)] transition-colors">
+                      {edu.degree}
+                    </h3>
+                  </div>
+
+                  <p className="text-[var(--primary)] text-sm font-medium mb-1">{edu.institution}</p>
+                  <p className="text-xs text-[var(--muted)] mb-3">{edu.period}</p>
+                  <p className="text-sm text-[var(--muted)] mb-4">{edu.description}</p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {edu.achievements.map((achievement, i) => (
+                      <span
+                        key={i}
+                        className="px-2.5 py-1 text-xs rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)] font-medium"
+                      >
+                        {achievement}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -246,18 +304,21 @@ export default function Experience() {
       </section>
 
       {/* Certifications */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 mb-12"
+            className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--primary)] flex items-center justify-center">
-              <Award className="w-6 h-6 text-white" />
+            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[var(--primary)]">
+              <Award className="w-7 h-7 text-white" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Certifications</h2>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-display">Certifications</h2>
+              <p className="text-[var(--muted)] text-sm">Continuous learning</p>
+            </div>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -268,19 +329,55 @@ export default function Experience() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="p-5 rounded-xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--accent)]/30 transition-all group cursor-pointer"
               >
-                <div className="flex items-start justify-between mb-3">
-                  <Award className="w-8 h-8 text-[var(--accent)]" />
-                  <ExternalLink className="w-4 h-4 text-[var(--muted)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="font-semibold text-sm mb-1 leading-tight">{cert.name}</h3>
-                <p className="text-xs text-[var(--muted)]">{cert.issuer}</p>
-                <p className="text-xs text-[var(--accent)] mt-2">{cert.year}</p>
+                <motion.div
+                  className="group p-5 rounded-xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--accent)]/40 transition-all h-full"
+                  whileHover={{ y: -4 }}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-3xl">{cert.emoji}</span>
+                    <span className="text-xs font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-1 rounded-full">
+                      {cert.year}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-sm mb-1 group-hover:text-[var(--accent)] transition-colors leading-tight">
+                    {cert.name}
+                  </h3>
+                  <p className="text-xs text-[var(--muted)]">{cert.issuer}</p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 via-transparent to-[var(--accent)]/5" />
+
+        <div className="max-w-4xl mx-auto px-6 text-center relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display mb-4">
+              Want to know more?
+            </h2>
+            <p className="text-[var(--muted)] mb-8 max-w-md mx-auto">
+              Download my resume for a complete overview of my experience, skills, and achievements.
+            </p>
+
+            <motion.a
+              href="/resume.pdf"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-xl"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Download Resume
+              <ArrowUpRight className="w-5 h-5" />
+            </motion.a>
+          </motion.div>
         </div>
       </section>
     </div>
