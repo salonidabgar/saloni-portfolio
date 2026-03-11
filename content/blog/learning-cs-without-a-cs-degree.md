@@ -3,7 +3,7 @@ title: "Learning CS Without a CS Degree: A Non-CS Engineer's Honest Playbook"
 excerpt: "I studied Material Science at IIT Kanpur. Today I write software for a living. Here's what nobody tells you about learning computer science from the outside in."
 date: "2026-02-24"
 readTime: "7 min read"
-category: "Tech"
+category: "Software Engineering"
 tags: ["Computer Science", "Career Switch", "Self-Learning", "Software Engineering"]
 featured: true
 emoji: "🧠"

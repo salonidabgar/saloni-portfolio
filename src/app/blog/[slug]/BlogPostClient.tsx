@@ -44,9 +44,12 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
               <Clock className="w-3.5 h-3.5" />
               {post.readTime}
             </span>
-            <span className="px-2.5 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary-light)] text-xs">
+            <Link
+              href={`/blog?category=${encodeURIComponent(post.category)}`}
+              className="px-2.5 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary-light)] text-xs hover:bg-[var(--primary)]/20 transition-colors"
+            >
               {post.category}
-            </span>
+            </Link>
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight tracking-tight">

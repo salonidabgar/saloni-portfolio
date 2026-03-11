@@ -162,7 +162,7 @@ export default function Experience() {
                   </div>
 
                   <motion.div
-                    className="md:ml-16 p-6 md:p-8 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all group"
+                    className="md:ml-16 p-4 sm:p-6 md:p-8 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all group"
                     whileHover={{ y: -4 }}
                   >
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
@@ -306,7 +306,7 @@ export default function Experience() {
                 transition={{ delay: index * 0.08, duration: 0.5 }}
               >
                 <motion.div
-                  className="group p-5 rounded-xl glass-card hover:border-[var(--border-hover)] transition-all h-full"
+                  className="group p-4 sm:p-5 rounded-xl glass-card hover:border-[var(--border-hover)] transition-all h-full"
                   whileHover={{ y: -4 }}
                 >
                   <div className="flex items-start justify-between mb-3">

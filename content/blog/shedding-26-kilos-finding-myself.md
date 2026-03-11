@@ -3,7 +3,7 @@ title: "Shedding 26 Kilos, Finding Myself: A Journey That's Only Half Done"
 excerpt: "For years, I carried more than just weight. I carried exhaustion, brain fog, and the quiet frustration of knowing I wasn't operating at my full potential. Last September, reality hit hard. Something had to change."
 date: "2024-12-26"
 readTime: "6 min read"
-category: "Life"
+category: "Health & Fitness"
 tags: ["Health", "Weight Loss", "Personal Growth", "Fitness"]
 featured: true
 emoji: "💪"

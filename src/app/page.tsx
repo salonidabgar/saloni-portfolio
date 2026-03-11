@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Download, Code2, Server, Cpu, Wrench, Sparkles, MapPin, ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowUpRight, Code2, Server, Cpu, Wrench, Sparkles, MapPin, ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 import { BlurReveal } from "@/components/TextReveal";
@@ -98,7 +98,7 @@ export default function Home() {
             {/* === ROW 1: Name & Title (8 cols) + Visual (4 cols) === */}
             <motion.div
               variants={cellVariants}
-              className="col-span-4 md:col-span-8 rounded-[24px] glass-card p-8 md:p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden"
+              className="col-span-4 md:col-span-8 rounded-[24px] glass-card p-5 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-[var(--primary)]/5 to-transparent rounded-full blur-3xl" />
 
@@ -111,7 +111,7 @@ export default function Home() {
                 <span>Open to opportunities</span>
               </motion.div>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-display font-bold tracking-tight leading-[0.95] mb-5">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold tracking-tight leading-[0.95] mb-5">
                 <span className="text-[var(--foreground)]">Saloni</span>{" "}
                 <span className="gradient-text">Dabgar</span>
               </h1>
@@ -133,15 +133,6 @@ export default function Home() {
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </MagneticButton>
                 </Link>
-                <MagneticButton
-                  as="a"
-                  href="/resume.pdf"
-                  className="group px-6 py-3 rounded-full text-sm font-medium border border-[var(--border)] hover:border-[var(--primary)] flex items-center gap-2 transition-all"
-                  data-cursor="PDF"
-                >
-                  <Download className="w-4 h-4" />
-                  Resume
-                </MagneticButton>
               </div>
             </motion.div>
 
@@ -165,7 +156,7 @@ export default function Home() {
               {/* Content overlay */}
               <div className="relative h-full flex flex-col items-center justify-center p-6">
                 <motion.div
-                  className="text-[80px] md:text-[100px] leading-none mb-4"
+                  className="text-6xl md:text-[100px] leading-none mb-4"
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -228,7 +219,7 @@ export default function Home() {
               <div className="flex items-center gap-1.5">
                 {[
                   { icon: Github, href: "https://github.com/salonidabgar" },
-                  { icon: Linkedin, href: "https://linkedin.com/in/salonidabgar" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/saloni-dabgar-695864194/" },
                   { icon: Twitter, href: "https://twitter.com/salonidabgar" },
                 ].map(({ icon: Icon, href }, i) => (
                   <a
@@ -508,7 +499,7 @@ export default function Home() {
             <div className="flex items-center justify-center gap-3 mt-12">
               {[
                 { icon: Github, href: "https://github.com/salonidabgar", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com/in/salonidabgar", label: "LinkedIn" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/saloni-dabgar-695864194/", label: "LinkedIn" },
                 { icon: Twitter, href: "https://twitter.com/salonidabgar", label: "Twitter" },
                 { icon: Mail, href: "mailto:dabgarsaloni11@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (

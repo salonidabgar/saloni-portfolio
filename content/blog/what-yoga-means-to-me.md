@@ -3,7 +3,7 @@ title: "What Yoga Means to Me"
 excerpt: "Yoga is not just physical exercise for me. It's a deep spiritual sadhana — my way of using this human body to touch a level of peak consciousness, to transcend, to become more than I was yesterday."
 date: "2024-12-17"
 readTime: "5 min read"
-category: "Life"
+category: "Personal Growth"
 tags: ["Yoga", "Spirituality", "Mindfulness", "Personal Growth"]
 featured: true
 emoji: "🧘‍♀️"

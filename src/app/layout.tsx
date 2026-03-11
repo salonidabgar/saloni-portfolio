@@ -45,7 +45,7 @@ export default function RootLayout({
         <MouseSpotlight />
         <CustomCursor />
         <Navigation />
-        <main className="flex-1 pt-20">
+        <main className="flex-1 pt-20 relative z-10 isolate">
           {children}
         </main>
         <Footer />

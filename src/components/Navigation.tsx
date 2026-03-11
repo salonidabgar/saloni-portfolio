@@ -101,11 +101,13 @@ export default function Navigation() {
               <div className="w-px h-6 bg-[var(--border)] mx-4" />
 
               <motion.a
-                href="mailto:dabgarsaloni11@gmail.com"
+                href="https://calendly.com/dabgarsaloni11/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full border border-[var(--border)] hover:border-[var(--primary)] transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                data-cursor="Email"
+                data-cursor="Book"
               >
                 <span>Let&apos;s Talk</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -114,7 +116,7 @@ export default function Navigation() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-full border border-[var(--border)]"
+              className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-full border border-[var(--border)]"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle menu"
@@ -140,14 +142,14 @@ export default function Navigation() {
         {isOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 z-40 md:hidden">
             <motion.div className="absolute inset-0 bg-[var(--background)]/95 backdrop-blur-xl" onClick={() => setIsOpen(false)} />
-            <div className="relative h-full flex flex-col items-center justify-center px-8">
+            <div className="relative h-full flex flex-col items-center justify-center px-6 sm:px-8">
               <nav className="flex flex-col items-center gap-2">
                 {navItems.map((item, index) => (
                   <motion.div key={item.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ delay: index * 0.08 + 0.1 }}>
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block text-4xl font-display font-medium py-3 transition-colors ${pathname === item.href ? "gradient-text" : "text-[var(--muted)] hover:text-[var(--foreground)]"}`}
+                      className={`block text-3xl sm:text-4xl font-display font-medium py-3 transition-colors ${pathname === item.href ? "gradient-text" : "text-[var(--muted)] hover:text-[var(--foreground)]"}`}
                     >
                       {item.name}
                     </Link>
@@ -155,8 +157,8 @@ export default function Navigation() {
                 ))}
               </nav>
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="mt-12">
-                <a href="mailto:dabgarsaloni11@gmail.com" className="flex items-center gap-2 px-8 py-4 rounded-full border border-[var(--border)] text-sm font-medium hover:border-[var(--primary)] transition-colors">
-                  dabgarsaloni11@gmail.com
+                <a href="https://calendly.com/dabgarsaloni11/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 rounded-full border border-[var(--border)] text-sm font-medium hover:border-[var(--primary)] transition-colors">
+                  Book a Call
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               </motion.div>

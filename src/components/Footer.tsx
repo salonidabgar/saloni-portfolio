@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/salonidabgar", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com/in/salonidabgar", icon: Linkedin },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/saloni-dabgar-695864194/", icon: Linkedin },
   { name: "Twitter", href: "https://twitter.com/salonidabgar", icon: Twitter },
   { name: "Email", href: "mailto:dabgarsaloni11@gmail.com", icon: Mail },
 ];
@@ -26,7 +26,7 @@ export default function Footer() {
 
       <div className="bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid md:grid-cols-12 gap-12 mb-12">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-12">
             {/* Brand */}
             <div className="md:col-span-5">
               <Link href="/" className="inline-flex items-center gap-3 mb-4">
@@ -39,7 +39,7 @@ export default function Footer() {
                 <span className="font-display text-sm font-medium tracking-wide">SALONI DABGAR</span>
               </Link>
 
-              <p className="text-[var(--muted)] text-sm mb-6 max-w-sm leading-relaxed">
+              <p className="text-[var(--muted)] text-sm mb-6 max-w-xs sm:max-w-sm leading-relaxed">
                 Software Developer crafting embedded systems, full-stack applications, and blockchain solutions.
                 Always learning, always building.
               </p>
@@ -48,7 +48,7 @@ export default function Footer() {
             {/* Navigation */}
             <div className="md:col-span-3">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)] mb-4">Pages</h4>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -97,7 +97,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg border border-[var(--border)] text-[var(--muted)] hover:text-[var(--primary-light)] hover:border-[var(--primary)]/30 transition-all"
+                  className="p-2.5 rounded-lg border border-[var(--border)] text-[var(--muted)] hover:text-[var(--primary-light)] hover:border-[var(--primary)]/30 transition-all"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={link.name}
