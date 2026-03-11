@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Award, Calendar, MapPin, ArrowUpRight } from "lucide-react";
+import { BlurReveal } from "@/components/TextReveal";
 
 const experiences = [
   {
@@ -20,7 +21,7 @@ const experiences = [
       "Created shared memory IPC mechanism optimizing real-time data flow",
     ],
     technologies: ["C", "C++", "FreeRTOS", "Linux", "Boost.Beast", "OpenSSL"],
-    color: "from-emerald-500 to-teal-500",
+    gradient: "from-emerald-500 to-teal-500",
     emoji: "🚗",
   },
   {
@@ -39,7 +40,7 @@ const experiences = [
       "Prepared thorough report on business, legal and market analysis",
     ],
     technologies: ["Solidity", "Next.js", "Ethereum", "Uniswap V3", "Remix", "Marlowe"],
-    color: "from-purple-500 to-pink-500",
+    gradient: "from-purple-500 to-pink-500",
     emoji: "⛓️",
   },
   {
@@ -58,7 +59,7 @@ const experiences = [
       "Integrated CI/CD pipeline using GitHub Actions for automated testing and deployment",
     ],
     technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "Docker", "WebSocket"],
-    color: "from-blue-500 to-indigo-500",
+    gradient: "from-blue-500 to-indigo-500",
     emoji: "📋",
   },
 ];
@@ -71,7 +72,7 @@ const education = [
     description: "Material Science and Engineering",
     achievements: ["CPI: 8/10", "SURGE Research", "Programming Club"],
     emoji: "🎓",
-    color: "from-violet-500 to-purple-500",
+    gradient: "from-violet-500 to-purple-500",
   },
   {
     degree: "Class XII (CBSE)",
@@ -80,7 +81,7 @@ const education = [
     description: "Higher Secondary Education - Science Stream",
     achievements: ["93.6%"],
     emoji: "📚",
-    color: "from-amber-500 to-orange-500",
+    gradient: "from-amber-500 to-orange-500",
   },
   {
     degree: "Class X (CBSE)",
@@ -89,7 +90,7 @@ const education = [
     description: "Secondary Education",
     achievements: ["9.8 CGPA"],
     emoji: "🏫",
-    color: "from-emerald-500 to-green-500",
+    gradient: "from-emerald-500 to-green-500",
   },
 ];
 
@@ -103,131 +104,114 @@ const certifications = [
 export default function Experience() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 pattern-grid opacity-40" />
-          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[var(--primary)]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[var(--secondary)]/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <span className="inline-block text-sm font-mono text-[var(--accent)] mb-4">
+        <div className="absolute inset-0 mesh-gradient" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <BlurReveal>
+            <span className="inline-block text-xs font-mono text-[var(--accent)] mb-4 tracking-wider">
               CAREER
             </span>
-            <h1 className="text-5xl md:text-6xl font-display mb-6">
+          </BlurReveal>
+          <BlurReveal delay={0.1}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
               My <span className="text-accent-serif">journey</span>
             </h1>
-            <p className="text-[var(--muted)] text-xl leading-relaxed">
-              From IIT Kanpur to Jaguar Land Rover — a path through embedded systems,
+          </BlurReveal>
+          <BlurReveal delay={0.2}>
+            <p className="text-[var(--muted-light)] text-xl leading-relaxed max-w-2xl">
+              From IIT Kanpur to Jaguar Land Rover &mdash; a path through embedded systems,
               blockchain, and everything in between.
             </p>
-          </motion.div>
+          </BlurReveal>
         </div>
       </section>
 
       {/* Work Experience */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-12"
-          >
-            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)]">
-              <Briefcase className="w-7 h-7 text-white" />
+        <div className="max-w-7xl mx-auto px-6">
+          <BlurReveal>
+            <div className="flex items-center gap-4 mb-12">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)]">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-display font-semibold">Work Experience</h2>
+                <p className="text-[var(--muted)] text-sm">Professional roles & internships</p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-display">Work Experience</h2>
-              <p className="text-[var(--muted)] text-sm">Professional roles & internships</p>
-            </div>
-          </motion.div>
+          </BlurReveal>
 
           <div className="relative">
-            {/* Timeline line - gradient */}
-            <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] hidden md:block" />
+            {/* Timeline line */}
+            <div className="absolute left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)]/50 via-[var(--secondary)]/30 to-transparent hidden md:block" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
+                  transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="relative"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-5 top-8 w-5 h-5 rounded-full bg-[var(--background)] border-4 border-[var(--primary)] hidden md:flex items-center justify-center z-10">
-                    <div className="w-2 h-2 rounded-full bg-[var(--primary)]" />
+                  <div className="absolute left-4 top-8 w-[18px] h-[18px] rounded-full bg-[var(--background)] border-[3px] border-[var(--primary)] hidden md:flex items-center justify-center z-10">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
                   </div>
 
                   <motion.div
-                    className="md:ml-20 p-6 md:p-8 rounded-2xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)]/30 transition-all group"
+                    className="md:ml-16 p-6 md:p-8 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all group"
                     whileHover={{ y: -4 }}
                   >
-                    {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                       <div className="flex items-start gap-4">
-                        <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${exp.color} flex items-center justify-center text-2xl`}>
+                        <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${exp.gradient} flex items-center justify-center text-2xl`}>
                           {exp.emoji}
                         </div>
                         <div>
-                          <h3 className="text-xl font-semibold group-hover:text-[var(--primary)] transition-colors">
+                          <h3 className="text-lg font-display font-semibold group-hover:text-[var(--primary-light)] transition-colors">
                             {exp.title}
                           </h3>
-                          <p className="text-[var(--primary)] font-medium">{exp.company}</p>
-                          <div className="flex flex-wrap items-center gap-3 mt-2 text-sm text-[var(--muted)]">
+                          <p className="text-[var(--primary-light)] font-medium text-sm">{exp.company}</p>
+                          <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-[var(--muted)]">
                             <span className="flex items-center gap-1">
-                              <Calendar className="w-3.5 h-3.5" />
+                              <Calendar className="w-3 h-3" />
                               {exp.period}
                             </span>
                             <span className="flex items-center gap-1">
-                              <MapPin className="w-3.5 h-3.5" />
+                              <MapPin className="w-3 h-3" />
                               {exp.location}
                             </span>
                           </div>
                         </div>
                       </div>
-                      <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)]">
+                      <span className="inline-flex px-3 py-1 text-[11px] font-medium rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)] whitespace-nowrap">
                         {exp.type}
                       </span>
                     </div>
 
-                    <p className="text-[var(--muted)] mb-6 leading-relaxed">{exp.description}</p>
+                    <p className="text-[var(--muted-light)] mb-6 text-sm leading-relaxed">{exp.description}</p>
 
-                    {/* Achievements */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                      <h4 className="text-xs font-semibold mb-3 flex items-center gap-2 text-[var(--muted-light)]">
+                        <span className="w-1 h-1 rounded-full bg-[var(--accent)]" />
                         Key Achievements
                       </h4>
                       <ul className="grid md:grid-cols-2 gap-2">
                         {exp.achievements.map((achievement, i) => (
                           <li key={i} className="text-sm text-[var(--muted)] flex items-start gap-2">
-                            <ArrowUpRight className="w-3.5 h-3.5 mt-1 flex-shrink-0 text-[var(--primary)]" />
+                            <ArrowUpRight className="w-3 h-3 mt-1 flex-shrink-0 text-[var(--primary-light)]" />
                             <span>{achievement}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                       {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1.5 text-xs rounded-lg bg-[var(--background)] text-[var(--muted)] border border-[var(--border-light)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors"
-                        >
-                          {tech}
-                        </span>
+                        <span key={tech} className="tag">{tech}</span>
                       ))}
                     </div>
                   </motion.div>
@@ -240,57 +224,51 @@ export default function Experience() {
 
       {/* Education */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--card)]" />
-        <div className="absolute inset-0 pattern-dots opacity-30" />
+        <div className="absolute inset-0 bg-[var(--surface)]" />
+        <div className="absolute inset-0 pattern-dots" />
 
-        <div className="max-w-6xl mx-auto px-6 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-12"
-          >
-            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)]">
-              <GraduationCap className="w-7 h-7 text-white" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <BlurReveal>
+            <div className="flex items-center gap-4 mb-12">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)]">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-display font-semibold">Education</h2>
+                <p className="text-[var(--muted)] text-sm">Academic background</p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-display">Education</h2>
-              <p className="text-[var(--muted)] text-sm">Academic background</p>
-            </div>
-          </motion.div>
+          </BlurReveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 <motion.div
-                  className="group h-full p-6 rounded-2xl bg-[var(--background)] border border-[var(--border)] hover:border-[var(--secondary)]/40 transition-all"
+                  className="group h-full p-6 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all"
                   whileHover={{ y: -4 }}
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${edu.color} flex items-center justify-center text-2xl mb-4`}>
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${edu.gradient} flex items-center justify-center text-xl mb-4`}>
                     {edu.emoji}
                   </div>
 
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className="font-semibold group-hover:text-[var(--secondary)] transition-colors">
-                      {edu.degree}
-                    </h3>
-                  </div>
-
-                  <p className="text-[var(--primary)] text-sm font-medium mb-1">{edu.institution}</p>
-                  <p className="text-xs text-[var(--muted)] mb-3">{edu.period}</p>
+                  <h3 className="font-display font-semibold text-sm group-hover:text-[var(--secondary)] transition-colors mb-1">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-[var(--primary-light)] text-xs font-medium mb-1">{edu.institution}</p>
+                  <p className="text-[11px] text-[var(--muted)] mb-2">{edu.period}</p>
                   <p className="text-sm text-[var(--muted)] mb-4">{edu.description}</p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {edu.achievements.map((achievement, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-1 text-xs rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)] font-medium"
+                        className="px-2.5 py-1 text-[11px] rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)] font-medium"
                       >
                         {achievement}
                       </span>
@@ -305,38 +283,35 @@ export default function Experience() {
 
       {/* Certifications */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-12"
-          >
-            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[var(--primary)]">
-              <Award className="w-7 h-7 text-white" />
+        <div className="max-w-7xl mx-auto px-6">
+          <BlurReveal>
+            <div className="flex items-center gap-4 mb-12">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--primary)]">
+                <Award className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-display font-semibold">Certifications</h2>
+                <p className="text-[var(--muted)] text-sm">Continuous learning</p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-display">Certifications</h2>
-              <p className="text-[var(--muted)] text-sm">Continuous learning</p>
-            </div>
-          </motion.div>
+          </BlurReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {certifications.map((cert, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08, duration: 0.5 }}
               >
                 <motion.div
-                  className="group p-5 rounded-xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--accent)]/40 transition-all h-full"
+                  className="group p-5 rounded-xl glass-card hover:border-[var(--border-hover)] transition-all h-full"
                   whileHover={{ y: -4 }}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-3xl">{cert.emoji}</span>
-                    <span className="text-xs font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-1 rounded-full">
+                  <div className="flex items-start justify-between mb-3">
+                    <span className="text-2xl">{cert.emoji}</span>
+                    <span className="text-[11px] font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-full">
                       {cert.year}
                     </span>
                   </div>
@@ -353,31 +328,29 @@ export default function Experience() {
 
       {/* CTA */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 via-transparent to-[var(--accent)]/5" />
-
+        <div className="absolute inset-0 mesh-gradient" />
         <div className="max-w-4xl mx-auto px-6 text-center relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-display mb-4">
+          <BlurReveal>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Want to know more?
             </h2>
+          </BlurReveal>
+          <BlurReveal delay={0.1}>
             <p className="text-[var(--muted)] mb-8 max-w-md mx-auto">
               Download my resume for a complete overview of my experience, skills, and achievements.
             </p>
-
+          </BlurReveal>
+          <BlurReveal delay={0.2}>
             <motion.a
               href="/resume.pdf"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-full text-sm"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
               Download Resume
-              <ArrowUpRight className="w-5 h-5" />
+              <ArrowUpRight className="w-4 h-4" />
             </motion.a>
-          </motion.div>
+          </BlurReveal>
         </div>
       </section>
     </div>

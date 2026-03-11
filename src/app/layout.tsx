@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import CustomCursor from "@/components/CustomCursor";
+import MouseSpotlight from "@/components/MouseSpotlight";
+import Starfield from "@/components/Starfield";
 
 export const metadata: Metadata = {
   title: "Saloni Dabgar | Software Developer",
-  description: "Full-stack software developer specializing in building exceptional digital experiences. Explore my portfolio, projects, and blog.",
-  keywords: ["software developer", "full-stack", "web developer", "portfolio", "Saloni Dabgar"],
+  description: "Full-stack software developer specializing in embedded systems, blockchain, and modern web applications. IIT Kanpur alumna, currently at Jaguar Land Rover.",
+  keywords: ["software developer", "embedded systems", "full-stack", "blockchain", "portfolio", "Saloni Dabgar", "IIT Kanpur", "Jaguar Land Rover"],
   authors: [{ name: "Saloni Dabgar" }],
   creator: "Saloni Dabgar",
   openGraph: {
@@ -26,12 +18,12 @@ export const metadata: Metadata = {
     url: "https://salonidabgar.com",
     siteName: "Saloni Dabgar",
     title: "Saloni Dabgar | Software Developer",
-    description: "Full-stack software developer specializing in building exceptional digital experiences.",
+    description: "Full-stack software developer crafting embedded systems, blockchain solutions, and modern web apps.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Saloni Dabgar | Software Developer",
-    description: "Full-stack software developer specializing in building exceptional digital experiences.",
+    description: "Full-stack software developer crafting embedded systems, blockchain solutions, and modern web apps.",
     creator: "@salonidabgar",
   },
   robots: {
@@ -46,10 +38,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-      >
+    <html lang="en" className="dark">
+      <body className="antialiased min-h-screen flex flex-col grain">
+        <div className="aurora" />
+        <Starfield />
+        <MouseSpotlight />
+        <CustomCursor />
         <Navigation />
         <main className="flex-1 pt-20">
           {children}

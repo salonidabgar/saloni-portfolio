@@ -17,7 +17,7 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
         >
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            className="inline-flex items-center gap-2 text-[var(--muted)] hover:text-[var(--foreground)] transition-colors text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Blog
@@ -28,69 +28,56 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12"
         >
           <div className="flex flex-wrap items-center gap-3 text-sm text-[var(--muted)] mb-4">
-            <span className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
+            <span className="flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5" />
               {new Date(post.date).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
               })}
             </span>
-            <span className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
+            <span className="flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5" />
               {post.readTime}
             </span>
-            <span className="px-3 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+            <span className="px-2.5 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary-light)] text-xs">
               {post.category}
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight tracking-tight">
             {post.title}
           </h1>
 
           <div className="flex flex-wrap gap-2 mb-8">
             {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 text-sm rounded-full bg-[var(--card)] border border-[var(--border)] text-[var(--muted)]"
-              >
-                {tag}
-              </span>
+              <span key={tag} className="tag">{tag}</span>
             ))}
           </div>
 
-          {/* Share Buttons */}
+          {/* Share */}
           <div className="flex items-center gap-4 pb-8 border-b border-[var(--border)]">
-            <span className="text-sm text-[var(--muted)]">Share:</span>
+            <span className="text-xs text-[var(--muted)] uppercase tracking-wider">Share</span>
             <div className="flex items-center gap-2">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2 rounded-full bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)] transition-colors"
-                aria-label="Share on Twitter"
-              >
-                <Twitter className="w-4 h-4" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2 rounded-full bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)] transition-colors"
-                aria-label="Share on LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2 rounded-full bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)] transition-colors"
-                aria-label="Copy link"
-              >
-                <LinkIcon className="w-4 h-4" />
-              </motion.button>
+              {[
+                { icon: Twitter, label: "Twitter" },
+                { icon: Linkedin, label: "LinkedIn" },
+                { icon: LinkIcon, label: "Copy link" },
+              ].map(({ icon: Icon, label }) => (
+                <motion.button
+                  key={label}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="p-2 rounded-lg border border-[var(--border)] hover:border-[var(--primary)]/30 hover:text-[var(--primary-light)] transition-all text-[var(--muted)]"
+                  aria-label={label}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                </motion.button>
+              ))}
             </div>
           </div>
         </motion.header>
@@ -99,7 +86,7 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
           className="blog-prose"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
@@ -109,18 +96,16 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 p-8 rounded-2xl bg-[var(--card)] border border-[var(--border)]"
+          className="mt-16 p-8 rounded-2xl glass-card"
         >
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center text-2xl">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center text-2xl flex-shrink-0">
               🧘‍♀️
             </div>
             <div>
-              <h3 className="font-semibold text-lg">Saloni Dabgar</h3>
-              <p className="text-[var(--muted)] text-sm mb-3">
-                Software Developer & Seeker
-              </p>
-              <p className="text-[var(--muted)] text-sm">
+              <h3 className="font-display font-semibold text-lg">Saloni Dabgar</h3>
+              <p className="text-[var(--muted)] text-sm mb-3">Software Developer & Seeker</p>
+              <p className="text-[var(--muted)] text-sm leading-relaxed">
                 Writing about life, technology, yoga, and the journey of becoming.
                 Follow along as I explore the intersection of code and consciousness.
               </p>
