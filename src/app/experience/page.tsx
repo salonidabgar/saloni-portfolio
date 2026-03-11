@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award, Calendar, MapPin, ArrowUpRight } from "lucide-react";
+import { Briefcase, GraduationCap, Award, Calendar, MapPin, ArrowUpRight, Car, Link2, ClipboardList, BookOpen, School, Brain, Bot, MessageSquare, BarChart3 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { BlurReveal } from "@/components/TextReveal";
 
 const experiences = [
@@ -22,7 +23,7 @@ const experiences = [
     ],
     technologies: ["C", "C++", "FreeRTOS", "Linux", "Boost.Beast", "OpenSSL"],
     gradient: "from-emerald-500 to-teal-500",
-    emoji: "🚗",
+    icon: Car,
   },
   {
     title: "Blockchain Developer Intern",
@@ -41,7 +42,7 @@ const experiences = [
     ],
     technologies: ["Solidity", "Next.js", "Ethereum", "Uniswap V3", "Remix", "Marlowe"],
     gradient: "from-purple-500 to-pink-500",
-    emoji: "⛓️",
+    icon: Link2,
   },
   {
     title: "Research Intern",
@@ -60,7 +61,7 @@ const experiences = [
     ],
     technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "Docker", "WebSocket"],
     gradient: "from-blue-500 to-indigo-500",
-    emoji: "📋",
+    icon: ClipboardList,
   },
 ];
 
@@ -71,7 +72,7 @@ const education = [
     period: "2019 - 2023",
     description: "Material Science and Engineering",
     achievements: ["CPI: 8/10", "SURGE Research", "Programming Club"],
-    emoji: "🎓",
+    icon: GraduationCap,
     gradient: "from-violet-500 to-purple-500",
   },
   {
@@ -80,7 +81,7 @@ const education = [
     period: "2018",
     description: "Higher Secondary Education - Science Stream",
     achievements: ["93.6%"],
-    emoji: "📚",
+    icon: BookOpen,
     gradient: "from-amber-500 to-orange-500",
   },
   {
@@ -89,16 +90,16 @@ const education = [
     period: "2016",
     description: "Secondary Education",
     achievements: ["9.8 CGPA"],
-    emoji: "🏫",
+    icon: School,
     gradient: "from-emerald-500 to-green-500",
   },
 ];
 
-const certifications = [
-  { name: "Deep Learning", issuer: "Coursera", year: "2023", emoji: "🧠" },
-  { name: "Machine Learning Applications", issuer: "Coursera", year: "2023", emoji: "🤖" },
-  { name: "Natural Language Processing", issuer: "Coursera", year: "2022", emoji: "💬" },
-  { name: "Data Structures & Algorithms", issuer: "Coursera", year: "2021", emoji: "📊" },
+const certifications: { name: string; issuer: string; year: string; icon: LucideIcon; gradient: string }[] = [
+  { name: "Deep Learning", issuer: "Coursera", year: "2023", icon: Brain, gradient: "from-violet-500 to-purple-500" },
+  { name: "Machine Learning Applications", issuer: "Coursera", year: "2023", icon: Bot, gradient: "from-blue-500 to-indigo-500" },
+  { name: "Natural Language Processing", issuer: "Coursera", year: "2022", icon: MessageSquare, gradient: "from-emerald-500 to-teal-500" },
+  { name: "Data Structures & Algorithms", issuer: "Coursera", year: "2021", icon: BarChart3, gradient: "from-amber-500 to-orange-500" },
 ];
 
 export default function Experience() {
@@ -167,8 +168,8 @@ export default function Experience() {
                   >
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                       <div className="flex items-start gap-4">
-                        <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${exp.gradient} flex items-center justify-center text-2xl`}>
-                          {exp.emoji}
+                        <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${exp.gradient} flex items-center justify-center`}>
+                          <exp.icon className="w-5 h-5 text-white" />
                         </div>
                         <div>
                           <h3 className="text-lg font-display font-semibold group-hover:text-[var(--primary-light)] transition-colors">
@@ -253,8 +254,8 @@ export default function Experience() {
                   className="group h-full p-6 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all"
                   whileHover={{ y: -4 }}
                 >
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${edu.gradient} flex items-center justify-center text-xl mb-4`}>
-                    {edu.emoji}
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${edu.gradient} flex items-center justify-center mb-4`}>
+                    <edu.icon className="w-5 h-5 text-white" />
                   </div>
 
                   <h3 className="font-display font-semibold text-sm group-hover:text-[var(--secondary)] transition-colors mb-1">
@@ -310,7 +311,9 @@ export default function Experience() {
                   whileHover={{ y: -4 }}
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <span className="text-2xl">{cert.emoji}</span>
+                    <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${cert.gradient} flex items-center justify-center`}>
+                      <cert.icon className="w-4 h-4 text-white" />
+                    </div>
                     <span className="text-[11px] font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-full">
                       {cert.year}
                     </span>

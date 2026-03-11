@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Code2, Server, Cpu, Wrench, Sparkles, MapPin, ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowUpRight, Code2, Server, Cpu, Wrench, Sparkles, MapPin, ArrowDown, Github, Linkedin, Twitter, Mail, GraduationCap, Car, Terminal } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 import { BlurReveal } from "@/components/TextReveal";
@@ -156,15 +156,19 @@ export default function Home() {
               {/* Content overlay */}
               <div className="relative h-full flex flex-col items-center justify-center p-6">
                 <motion.div
-                  className="text-6xl md:text-[100px] leading-none mb-4"
-                  animate={{ y: [0, -8, 0] }}
+                  className="w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] flex items-center justify-center mb-4"
+                  animate={{ y: [0, -8, 0], rotate: [0, 3, -3, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  👩‍💻
+                  <Terminal className="w-10 h-10 md:w-14 md:h-14 text-white" />
                 </motion.div>
                 <div className="flex gap-2 mt-2">
-                  <span className="px-3 py-1.5 glass rounded-full text-[11px] font-medium">🎓 IIT Kanpur</span>
-                  <span className="px-3 py-1.5 glass rounded-full text-[11px] font-medium">🚗 JLR</span>
+                  <span className="px-3 py-1.5 glass rounded-full text-[11px] font-medium flex items-center gap-1.5">
+                    <GraduationCap className="w-3 h-3" /> IIT Kanpur
+                  </span>
+                  <span className="px-3 py-1.5 glass rounded-full text-[11px] font-medium flex items-center gap-1.5">
+                    <Car className="w-3 h-3" /> JLR
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -192,8 +196,8 @@ export default function Home() {
               variants={cellVariants}
               className="col-span-4 md:col-span-5 rounded-[24px] glass-card p-6 flex items-center gap-5 hover:border-[var(--border-hover)] transition-colors"
             >
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-xl flex-shrink-0">
-                🚗
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0">
+                <Car className="w-5 h-5 text-white" />
               </div>
               <div className="min-w-0">
                 <div className="text-[10px] text-[var(--muted)] uppercase tracking-wider mb-0.5 flex items-center gap-1.5">
@@ -401,13 +405,13 @@ export default function Home() {
                 <div className="h-64 md:h-auto bg-gradient-to-br from-orange-500 to-red-500 relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/20" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.span
-                      className="text-8xl md:text-[120px]"
+                    <motion.div
+                      className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center"
                       animate={{ y: [0, -8, 0] }}
                       transition={{ duration: 4, repeat: Infinity }}
                     >
-                      🚗
-                    </motion.span>
+                      <Car className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                    </motion.div>
                   </div>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer" />
                 </div>

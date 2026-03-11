@@ -1,11 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, Twitter, Linkedin, Link as LinkIcon } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Twitter, Linkedin, Link as LinkIcon, Check } from "lucide-react";
 import Link from "next/link";
 import type { BlogPostWithContent } from "@/lib/blog";
 
 export default function BlogPostClient({ post }: { post: BlogPostWithContent }) {
+  const [copied, setCopied] = useState(false);
+
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareText = `${post.title} by @salonidabgar`;
+
+  const handleShare = (platform: string) => {
+    if (platform === "Twitter") {
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, "_blank");
+    } else if (platform === "LinkedIn") {
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, "_blank");
+    } else if (platform === "Copy link") {
+      navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
   return (
     <div className="min-h-screen py-12">
       <article className="max-w-3xl mx-auto px-6">
@@ -69,13 +86,18 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
               {[
                 { icon: Twitter, label: "Twitter" },
                 { icon: Linkedin, label: "LinkedIn" },
-                { icon: LinkIcon, label: "Copy link" },
+                { icon: copied ? Check : LinkIcon, label: "Copy link" },
               ].map(({ icon: Icon, label }) => (
                 <motion.button
                   key={label}
+                  onClick={() => handleShare(label)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-2 rounded-lg border border-[var(--border)] hover:border-[var(--primary)]/30 hover:text-[var(--primary-light)] transition-all text-[var(--muted)]"
+                  className={`p-2 rounded-lg border transition-all ${
+                    label === "Copy link" && copied
+                      ? "border-emerald-500/30 text-emerald-400"
+                      : "border-[var(--border)] hover:border-[var(--primary)]/30 hover:text-[var(--primary-light)] text-[var(--muted)]"
+                  }`}
                   aria-label={label}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -102,8 +124,8 @@ export default function BlogPostClient({ post }: { post: BlogPostWithContent }) 
           className="mt-16 p-8 rounded-2xl glass-card"
         >
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center text-2xl flex-shrink-0">
-              🧘‍♀️
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center flex-shrink-0">
+              <span className="font-display text-xl font-bold text-white">S</span>
             </div>
             <div>
               <h3 className="font-display font-semibold text-lg">Saloni Dabgar</h3>

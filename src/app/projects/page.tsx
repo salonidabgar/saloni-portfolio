@@ -2,10 +2,21 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, ArrowUpRight, Sparkles } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight, Sparkles, Car, Link2, CheckSquare, Radio, Brain, Lightbulb } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { BlurReveal } from "@/components/TextReveal";
 
-const projects = [
+const projects: {
+  title: string;
+  description: string;
+  technologies: string[];
+  category: string;
+  github: string | null;
+  live: string | null;
+  featured: boolean;
+  gradient: string;
+  icon: LucideIcon;
+}[] = [
   {
     title: "Software Over-The-Air (SOTA) Controller",
     description: "Built automotive SOTA controller with state-machine architecture for secure vehicle software updates with pause/resume/cancel functionality.",
@@ -15,7 +26,7 @@ const projects = [
     live: null,
     featured: true,
     gradient: "from-orange-500 to-red-500",
-    emoji: "🚗",
+    icon: Car,
   },
   {
     title: "Blockchain Currency Exchange Platform",
@@ -26,7 +37,7 @@ const projects = [
     live: null,
     featured: true,
     gradient: "from-purple-500 to-pink-500",
-    emoji: "⛓️",
+    icon: Link2,
   },
   {
     title: "TaskFlow - Async Task Management",
@@ -37,7 +48,7 @@ const projects = [
     live: null,
     featured: true,
     gradient: "from-emerald-500 to-teal-500",
-    emoji: "✅",
+    icon: CheckSquare,
   },
   {
     title: "UDP Serializer-Deserializer",
@@ -48,7 +59,7 @@ const projects = [
     live: null,
     featured: false,
     gradient: "from-blue-500 to-indigo-500",
-    emoji: "📡",
+    icon: Radio,
   },
   {
     title: "Deep into CNNs",
@@ -59,7 +70,7 @@ const projects = [
     live: null,
     featured: false,
     gradient: "from-violet-500 to-purple-500",
-    emoji: "🧠",
+    icon: Brain,
   },
   {
     title: "E2E Headlamp Communication System",
@@ -70,7 +81,7 @@ const projects = [
     live: null,
     featured: false,
     gradient: "from-amber-500 to-orange-500",
-    emoji: "💡",
+    icon: Lightbulb,
   },
 ];
 
@@ -141,13 +152,13 @@ export default function Projects() {
                   <div className={`h-36 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.span
-                        className="text-6xl"
+                      <motion.div
+                        className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center"
                         animate={{ y: [0, -6, 0] }}
                         transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                       >
-                        {project.emoji}
-                      </motion.span>
+                        <project.icon className="w-8 h-8 text-white" />
+                      </motion.div>
                     </div>
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer" />
                   </div>
@@ -265,8 +276,8 @@ export default function Projects() {
                     whileHover={{ y: -4 }}
                   >
                     <div className="flex items-start gap-4">
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center text-2xl`}>
-                        {project.emoji}
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                        <project.icon className="w-5 h-5 text-white" />
                       </div>
 
                       <div className="flex-1 min-w-0">

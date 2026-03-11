@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import MouseSpotlight from "@/components/MouseSpotlight";
 import Starfield from "@/components/Starfield";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
   title: "Saloni Dabgar | Software Developer",
@@ -49,6 +50,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

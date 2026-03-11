@@ -2,18 +2,30 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Mail, Search, Tag } from "lucide-react";
+import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Mail, Search, Tag, Code2, Heart, Sprout, type LucideIcon } from "lucide-react";
+
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
+  "Software Engineering": Code2,
+  "Health & Fitness": Heart,
+  "Personal Growth": Sprout,
+  "Career": ArrowUpRight,
+  "Code": Code2,
+};
+
+function getCategoryIcon(category: string): LucideIcon {
+  return CATEGORY_ICONS[category] || BookOpen;
+}
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog";
 import { BlurReveal } from "@/components/TextReveal";
 
 const CATEGORIES = [
-  { id: "all", label: "All Posts", icon: "📚" },
-  { id: "Software Engineering", label: "Software Engineering", icon: "💻" },
-  { id: "Career", label: "Career", icon: "🚀" },
-  { id: "Health & Fitness", label: "Health & Fitness", icon: "💪" },
-  { id: "Personal Growth", label: "Personal Growth", icon: "🌱" },
-  { id: "Code", label: "Code", icon: "🧑‍💻" },
+  { id: "all", label: "All Posts" },
+  { id: "Software Engineering", label: "Software Engineering" },
+  { id: "Career", label: "Career" },
+  { id: "Health & Fitness", label: "Health & Fitness" },
+  { id: "Personal Growth", label: "Personal Growth" },
+  { id: "Code", label: "Code" },
 ];
 
 function formatDate(date: string) {
@@ -102,7 +114,6 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
                 }`}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-xs">{cat.icon}</span>
                 {cat.label}
               </motion.button>
             ))}
@@ -151,13 +162,15 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
                       <div className={`h-40 bg-gradient-to-br ${post.color} relative overflow-hidden flex-shrink-0`}>
                         <div className="absolute inset-0 bg-black/15" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <motion.span
-                            className="text-5xl"
-                            animate={{ y: [0, -4, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, delay: index * 0.2 }}
-                          >
-                            {post.emoji}
-                          </motion.span>
+                          {(() => { const Icon = getCategoryIcon(post.category); return (
+                            <motion.div
+                              className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center"
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{ duration: 4, repeat: Infinity, delay: index * 0.2 }}
+                            >
+                              <Icon className="w-7 h-7 text-white" />
+                            </motion.div>
+                          ); })()}
                         </div>
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer" />
 
