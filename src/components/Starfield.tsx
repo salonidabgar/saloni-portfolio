@@ -1,9 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 export default function Starfield() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const stars = useMemo(() => {
+    if (!mounted) return [];
     const layers = [];
 
     // Layer 1: Small dim stars
@@ -42,7 +46,9 @@ export default function Starfield() {
     layers.push(...accentStars);
 
     return layers;
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) return <div className="starfield-container fixed inset-0 z-[0] pointer-events-none overflow-hidden" />;
 
   return (
     <div className="starfield-container fixed inset-0 z-[0] pointer-events-none overflow-hidden">
