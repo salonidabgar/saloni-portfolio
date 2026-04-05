@@ -73,12 +73,12 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
           </BlurReveal>
           <BlurReveal delay={0.1}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-5 tracking-tight">
-              The <span className="text-accent-serif">Blog</span>
+              <span className="text-accent-serif">Thinking</span>
             </h1>
           </BlurReveal>
           <BlurReveal delay={0.2}>
             <p className="text-[var(--muted-light)] text-lg leading-relaxed max-w-2xl">
-              Writing about software engineering, career growth, health, and the pursuit of a meaningful life.
+              Essays at the intersection of engineering, philosophy, nature, and the human experience.
             </p>
           </BlurReveal>
         </div>

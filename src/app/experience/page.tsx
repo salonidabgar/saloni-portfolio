@@ -22,7 +22,7 @@ const experiences = [
       "Created shared memory IPC mechanism optimizing real-time data flow",
     ],
     technologies: ["C", "C++", "FreeRTOS", "Linux", "Boost.Beast", "OpenSSL"],
-    gradient: "from-emerald-500 to-teal-500",
+    gradient: "from-[var(--primary-dark)] to-[var(--primary)]",
     icon: Car,
   },
   {
@@ -31,7 +31,7 @@ const experiences = [
     location: "Zurich, Switzerland",
     period: "Jun 2022 - Jul 2022",
     type: "Internship",
-    description: "Blockchain Center, UZH - Worked on Application of Blockchain in Currency Exchange Platform.",
+    description: "Blockchain Center, UZH - Explored how decentralized systems can model trust without institutions.",
     achievements: [
       "Implemented asset smart contract in Solidity, deployed on UZHETH test network using Remix",
       "Created a liquidity pool on Uniswap V3 with Ethereum and self-created token",
@@ -41,7 +41,7 @@ const experiences = [
       "Prepared thorough report on business, legal and market analysis",
     ],
     technologies: ["Solidity", "Next.js", "Ethereum", "Uniswap V3", "Remix", "Marlowe"],
-    gradient: "from-purple-500 to-pink-500",
+    gradient: "from-[var(--accent)] to-amber-600",
     icon: Link2,
   },
   {
@@ -60,7 +60,7 @@ const experiences = [
       "Integrated CI/CD pipeline using GitHub Actions for automated testing and deployment",
     ],
     technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "Docker", "WebSocket"],
-    gradient: "from-blue-500 to-indigo-500",
+    gradient: "from-[var(--secondary)] to-[var(--secondary-dark)]",
     icon: ClipboardList,
   },
 ];
@@ -73,7 +73,7 @@ const education = [
     description: "Material Science and Engineering",
     achievements: ["CPI: 8/10", "SURGE Research", "Programming Club"],
     icon: GraduationCap,
-    gradient: "from-violet-500 to-purple-500",
+    gradient: "from-[var(--primary)] to-[var(--primary-light)]",
   },
   {
     degree: "Class XII (CBSE)",
@@ -82,7 +82,7 @@ const education = [
     description: "Higher Secondary Education - Science Stream",
     achievements: ["93.6%"],
     icon: BookOpen,
-    gradient: "from-amber-500 to-orange-500",
+    gradient: "from-[var(--accent)] to-[var(--accent-warm)]",
   },
   {
     degree: "Class X (CBSE)",
@@ -91,15 +91,15 @@ const education = [
     description: "Secondary Education",
     achievements: ["9.8 CGPA"],
     icon: School,
-    gradient: "from-emerald-500 to-green-500",
+    gradient: "from-[var(--secondary)] to-[var(--primary)]",
   },
 ];
 
 const certifications: { name: string; issuer: string; year: string; icon: LucideIcon; gradient: string }[] = [
-  { name: "Deep Learning", issuer: "Coursera", year: "2023", icon: Brain, gradient: "from-violet-500 to-purple-500" },
-  { name: "Machine Learning Applications", issuer: "Coursera", year: "2023", icon: Bot, gradient: "from-blue-500 to-indigo-500" },
-  { name: "Natural Language Processing", issuer: "Coursera", year: "2022", icon: MessageSquare, gradient: "from-emerald-500 to-teal-500" },
-  { name: "Data Structures & Algorithms", issuer: "Coursera", year: "2021", icon: BarChart3, gradient: "from-amber-500 to-orange-500" },
+  { name: "Deep Learning", issuer: "Coursera", year: "2023", icon: Brain, gradient: "from-[var(--primary)] to-[var(--primary-dark)]" },
+  { name: "Machine Learning Applications", issuer: "Coursera", year: "2023", icon: Bot, gradient: "from-[var(--secondary)] to-[var(--secondary-dark)]" },
+  { name: "Natural Language Processing", issuer: "Coursera", year: "2022", icon: MessageSquare, gradient: "from-[var(--primary-light)] to-[var(--primary)]" },
+  { name: "Data Structures & Algorithms", issuer: "Coursera", year: "2021", icon: BarChart3, gradient: "from-[var(--accent)] to-[var(--accent-warm)]" },
 ];
 
 export default function Experience() {
@@ -145,7 +145,7 @@ export default function Experience() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)]/50 via-[var(--secondary)]/30 to-transparent hidden md:block" />
+            <div className="absolute left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)]/50 via-[var(--accent)]/30 to-transparent hidden md:block" />
 
             <div className="space-y-6">
               {experiences.map((exp, index) => (
