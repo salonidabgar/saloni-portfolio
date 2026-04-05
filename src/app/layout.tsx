@@ -7,6 +7,7 @@ import MouseSpotlight from "@/components/MouseSpotlight";
 import Starfield from "@/components/Starfield";
 import BackToTop from "@/components/BackToTop";
 import SmoothScroll from "@/components/SmoothScroll";
+import Preloader from "@/components/Preloader";
 
 export const metadata: Metadata = {
   title: "Saloni Dabgar | Engineer, Builder, Thinker",
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="antialiased min-h-screen flex flex-col grain">
+        <Preloader />
         <SmoothScroll />
         <div className="aurora" />
         <Starfield />

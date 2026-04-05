@@ -1,31 +1,58 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, ArrowDown, Github, Linkedin, Twitter, Mail, BookOpen, Cpu, Globe, Brain } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Github, Linkedin, Twitter, Mail, BookOpen, Cpu, Globe, Brain, CheckSquare, Zap } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 import { BlurReveal } from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
 import SkillConstellation from "@/components/SkillConstellation";
+import SplitText from "@/components/SplitText";
 
 const featuredProjects = [
   {
     tag: "Embedded Systems",
-    title: "Software Over-The-Air (SOTA) Controller",
+    title: "SOTA Controller",
+    subtitle: "Jaguar Land Rover",
     description:
-      "When your Jaguar downloads a software update at 2am, this is the system I built. State-machine architecture for secure vehicle software updates with encrypted communication over Boost.Beast and OpenSSL.",
-    tech: ["C++", "Boost.Beast", "OpenSSL", "SSL/TLS", "Linux"],
+      "When your Jaguar downloads a software update at 2am, this is the system I built.",
+    tech: ["C++", "Boost.Beast", "OpenSSL", "Linux"],
     icon: Cpu,
-    accent: "from-[var(--primary)] to-[var(--primary-dark)]",
+    gradient: "from-emerald-500 to-teal-400",
+    number: "01",
+  },
+  {
+    tag: "Blockchain",
+    title: "Currency Exchange",
+    subtitle: "University of Zurich",
+    description:
+      "Smart contracts handle the trust. Liquidity pools handle the flow. Humans handle the rest.",
+    tech: ["Solidity", "React", "Ethereum", "Uniswap"],
+    icon: Globe,
+    gradient: "from-amber-500 to-orange-400",
+    number: "02",
   },
   {
     tag: "Full-Stack",
-    title: "Blockchain-Based Document Verification",
+    title: "TaskFlow",
+    subtitle: "SURGE, IIT Kanpur",
     description:
-      "A decentralized platform for tamper-proof document verification. Smart contracts handle the trust; the web app handles the humans.",
-    tech: ["Solidity", "React", "Node.js", "PostgreSQL", "Docker"],
-    icon: Globe,
-    accent: "from-[var(--accent)] to-[var(--accent-warm)]",
+      "1000+ concurrent users, 40% faster than baseline. Async task orchestration that teaches you how systems break.",
+    tech: ["FastAPI", "React", "PostgreSQL", "Redis"],
+    icon: CheckSquare,
+    gradient: "from-pink-500 to-rose-400",
+    number: "03",
+  },
+  {
+    tag: "Embedded",
+    title: "E2E Headlamp System",
+    subtitle: "Jaguar Land Rover",
+    description:
+      "10% efficiency gain in vehicle communication — small number, massive scale across every vehicle on the road.",
+    tech: ["C", "Linux", "Vehicle Comms"],
+    icon: Zap,
+    gradient: "from-violet-500 to-purple-400",
+    number: "04",
   },
 ];
 
@@ -51,23 +78,32 @@ export default function Home() {
       <section ref={heroRef} className="min-h-screen relative overflow-hidden flex items-center">
         <div className="absolute inset-0 mesh-gradient-strong" />
 
-        {/* Slow organic ambient */}
+        {/* Vibrant ambient orbs */}
         <motion.div
           className="absolute w-[800px] h-[800px] top-[-300px] right-[-200px] rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(61,122,90,0.08) 0%, transparent 70%)",
-            filter: "blur(60px)",
+            background: "radial-gradient(circle, rgba(16,185,129,0.12) 0%, rgba(6,214,160,0.04) 40%, transparent 70%)",
+            filter: "blur(80px)",
           }}
-          animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.05, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.08, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
           className="absolute w-[600px] h-[600px] bottom-[-200px] left-[-100px] rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(212,168,83,0.05) 0%, transparent 70%)",
-            filter: "blur(60px)",
+            background: "radial-gradient(circle, rgba(255,107,107,0.08) 0%, rgba(236,72,153,0.04) 40%, transparent 70%)",
+            filter: "blur(80px)",
           }}
-          animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
+          animate={{ x: [0, -40, 0], y: [0, -50, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute w-[500px] h-[500px] top-[40%] left-[30%] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 70%)",
+            filter: "blur(80px)",
+          }}
+          animate={{ x: [0, 30, -20, 0], y: [0, -20, 30, 0] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
 
@@ -77,11 +113,15 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Name */}
+            {/* Name — character split reveal */}
             <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-display font-bold tracking-tight leading-[0.9] mb-8">
-              <span className="text-[var(--foreground)]">Saloni</span>
+              <span className="text-[var(--foreground)]">
+                <SplitText delay={0.2} stagger={0.04}>Saloni</SplitText>
+              </span>
               <br />
-              <span className="gradient-text">Dabgar</span>
+              <span className="gradient-text">
+                <SplitText delay={0.5} stagger={0.04}>Dabgar</SplitText>
+              </span>
             </h1>
           </motion.div>
 
@@ -96,7 +136,7 @@ export default function Home() {
               <span className="text-[var(--foreground)] font-medium">Jaguar Land Rover</span> vehicles.
               <br className="hidden md:block" />{" "}
               I study the systems that run inside{" "}
-              <span className="text-[var(--accent-warm)]">people</span>.
+              <span className="text-[var(--vivid-coral)]">people</span>.
             </p>
           </motion.div>
 
@@ -344,84 +384,115 @@ export default function Home() {
       {/* Section divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-[var(--border-hover)] to-transparent" />
 
-      {/* ===== FEATURED PROJECTS — CASE STUDIES ===== */}
+      {/* ===== FEATURED PROJECTS — HORIZONTAL SCROLL ===== */}
       <section className="py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-[var(--surface)]" />
 
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <BlurReveal>
-            <div className="flex items-center justify-between mb-14">
-              <div>
-                <span className="text-xs font-mono text-[var(--accent)] tracking-wider block mb-3">FEATURED WORK</span>
-                <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
-                  Projects that <span className="text-accent-serif">matter</span>
-                </h2>
-              </div>
-              <Link
-                href="/projects"
-                className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-              >
-                View all <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </BlurReveal>
-
-          <div className="space-y-6">
-            {featuredProjects.map((project, index) => (
-              <BlurReveal key={project.title} delay={index * 0.15}>
-                <motion.div
-                  className="group rounded-2xl glass-card overflow-hidden hover:border-[var(--border-hover)] transition-all"
-                  whileHover={{ y: -4 }}
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <BlurReveal>
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-xs font-mono text-[var(--accent)] tracking-wider block mb-3">FEATURED WORK</span>
+                  <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                    Projects that <span className="text-accent-serif">matter</span>
+                  </h2>
+                </div>
+                <Link
+                  href="/projects"
+                  className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
                 >
-                  <div className="grid md:grid-cols-2">
-                    {/* Project visual */}
-                    <div className={`h-64 md:h-auto bg-gradient-to-br ${project.accent} relative overflow-hidden min-h-[280px]`}>
-                      <div className="absolute inset-0 bg-black/30" />
+                  View all <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </BlurReveal>
+          </div>
+
+          {/* Horizontal scroll container */}
+          <div className="overflow-x-auto scrollbar-none" data-lenis-prevent>
+            <div className="flex gap-6 px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pb-4" style={{ width: "max-content" }}>
+              {featuredProjects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="group w-[340px] md:w-[420px] flex-shrink-0"
+                >
+                  <motion.div
+                    className="h-full rounded-2xl glass-card overflow-hidden hover:border-[var(--border-hover)] transition-all"
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* Gradient header with number */}
+                    <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+                      <div className="absolute inset-0 bg-black/20" />
+
+                      {/* Large number */}
+                      <span className="absolute top-4 left-5 text-6xl font-display font-bold text-white/10">
+                        {project.number}
+                      </span>
+
                       <div className="absolute inset-0 flex items-center justify-center">
                         <motion.div
-                          className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center"
-                          animate={{ y: [0, -8, 0] }}
-                          transition={{ duration: 4, repeat: Infinity }}
+                          className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center"
+                          animate={{ y: [0, -6, 0] }}
+                          transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
                         >
-                          <project.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                          <project.icon className="w-8 h-8 text-white" />
                         </motion.div>
                       </div>
+
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer" />
                     </div>
 
-                    {/* Project info */}
-                    <div className="p-8 md:p-10 flex flex-col justify-center">
-                      <span className="px-2.5 py-1 text-[11px] rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium w-fit mb-4">
-                        {project.tag}
-                      </span>
-                      <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-[var(--primary-light)] transition-colors">
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="px-2.5 py-1 text-[10px] rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium uppercase tracking-wider">
+                          {project.tag}
+                        </span>
+                        <span className="text-[10px] text-[var(--muted)]">{project.subtitle}</span>
+                      </div>
+
+                      <h3 className="text-xl font-display font-bold mb-3 group-hover:text-[var(--primary-light)] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-[var(--muted-light)] leading-relaxed mb-6">
+
+                      <p className="text-sm text-[var(--muted-light)] leading-relaxed mb-5">
                         {project.description}
                       </p>
+
                       <div className="flex flex-wrap gap-1.5">
                         {project.tech.map((t) => (
                           <span key={t} className="tag">{t}</span>
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
-              </BlurReveal>
-            ))}
-          </div>
+              ))}
 
-          <BlurReveal delay={0.3}>
-            <div className="mt-10 text-center sm:hidden">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              {/* View all card */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="w-[200px] md:w-[260px] flex-shrink-0 flex items-center justify-center"
               >
-                View all projects <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+                <Link
+                  href="/projects"
+                  className="group flex flex-col items-center gap-3 text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  <div className="w-14 h-14 rounded-full border border-[var(--border)] group-hover:border-[var(--primary)] flex items-center justify-center transition-colors">
+                    <ArrowUpRight className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-medium">View all</span>
+                </Link>
+              </motion.div>
             </div>
-          </BlurReveal>
+          </div>
         </div>
       </section>
 

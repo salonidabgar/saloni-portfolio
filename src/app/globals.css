@@ -13,20 +13,27 @@
   --foreground: #f5f0eb;
   --foreground-muted: #d9d3ca;
 
-  /* Primary - Forest Green */
-  --primary: #3d7a5a;
-  --primary-light: #5a9e78;
-  --primary-dark: #2d5a3d;
-  --primary-glow: rgba(61, 122, 90, 0.4);
+  /* Primary - Vivid Emerald (brighter, punchier) */
+  --primary: #10b981;
+  --primary-light: #34d399;
+  --primary-dark: #059669;
+  --primary-glow: rgba(16, 185, 129, 0.4);
 
-  /* Accent - Warm Amber */
-  --accent: #d4a853;
-  --accent-warm: #e8c47a;
-  --accent-glow: rgba(212, 168, 83, 0.3);
+  /* Accent - Electric Coral */
+  --accent: #ff6b6b;
+  --accent-warm: #ffa07a;
+  --accent-glow: rgba(255, 107, 107, 0.3);
 
-  /* Secondary - Sage */
-  --secondary: #8faa8b;
-  --secondary-dark: #6e8c6a;
+  /* Secondary - Vivid Amber */
+  --secondary: #f59e0b;
+  --secondary-dark: #d97706;
+
+  /* Vibrant pops — for gradients and highlights */
+  --vivid-teal: #06d6a0;
+  --vivid-coral: #ff6b6b;
+  --vivid-purple: #a855f7;
+  --vivid-blue: #3b82f6;
+  --vivid-pink: #ec4899;
 
   /* Neutrals — warm grays, not blue-grays */
   --muted: #7a7a6e;
@@ -82,6 +89,11 @@
   --color-secondary: var(--secondary);
   --color-secondary-dark: var(--secondary-dark);
   --color-sage: var(--secondary);
+  --color-vivid-teal: var(--vivid-teal);
+  --color-vivid-coral: var(--vivid-coral);
+  --color-vivid-purple: var(--vivid-purple);
+  --color-vivid-blue: var(--vivid-blue);
+  --color-vivid-pink: var(--vivid-pink);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
   --color-border: var(--border);
@@ -177,7 +189,7 @@ body {
 
 /* Gradient text effects */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-warm) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--vivid-teal) 0%, var(--secondary) 40%, var(--vivid-coral) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -191,7 +203,7 @@ body {
 }
 
 .gradient-text-warm {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-warm) 50%, var(--primary-light) 100%);
+  background: linear-gradient(135deg, var(--vivid-coral) 0%, var(--secondary) 50%, var(--vivid-teal) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -272,8 +284,8 @@ body {
 .aurora::before {
   background: radial-gradient(
     ellipse at 30% 50%,
-    rgba(61, 122, 90, 0.1) 0%,
-    rgba(143, 170, 139, 0.05) 40%,
+    rgba(16, 185, 129, 0.1) 0%,
+    rgba(168, 85, 247, 0.05) 40%,
     transparent 70%
   );
   animation: auroraShift1 18s ease-in-out infinite;
@@ -282,8 +294,8 @@ body {
 .aurora::after {
   background: radial-gradient(
     ellipse at 70% 40%,
-    rgba(143, 170, 139, 0.06) 0%,
-    rgba(212, 168, 83, 0.04) 40%,
+    rgba(236, 72, 153, 0.06) 0%,
+    rgba(245, 158, 11, 0.05) 40%,
     transparent 70%
   );
   animation: auroraShift2 22s ease-in-out infinite;
@@ -317,16 +329,16 @@ body {
 /* --- Mesh Gradient Backgrounds --- */
 .mesh-gradient {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(61, 122, 90, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(143, 170, 139, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(212, 168, 83, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 107, 107, 0.04) 0%, transparent 50%);
 }
 
 .mesh-gradient-strong {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(61, 122, 90, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(143, 170, 139, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(212, 168, 83, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 107, 107, 0.06) 0%, transparent 50%);
 }
 
 /* --- Bento Grid --- */

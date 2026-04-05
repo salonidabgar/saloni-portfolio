@@ -73,10 +73,10 @@ const EDGES: SkillEdge[] = [
 ];
 
 const CLUSTER_COLORS: Record<string, string> = {
-  embedded: "#3d7a5a",
-  web: "#d4a853",
-  infra: "#8faa8b",
-  blockchain: "#5a9e78",
+  embedded: "#10b981",
+  web: "#f59e0b",
+  infra: "#a855f7",
+  blockchain: "#ff6b6b",
 };
 
 const CLUSTER_LABELS: Record<string, string> = {
