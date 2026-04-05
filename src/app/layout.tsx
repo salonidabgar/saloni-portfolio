@@ -8,9 +8,9 @@ import Starfield from "@/components/Starfield";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "Saloni Dabgar | Software Developer",
-  description: "Full-stack software developer specializing in embedded systems, blockchain, and modern web applications. IIT Kanpur alumna, currently at Jaguar Land Rover.",
-  keywords: ["software developer", "embedded systems", "full-stack", "blockchain", "portfolio", "Saloni Dabgar", "IIT Kanpur", "Jaguar Land Rover"],
+  title: "Saloni Dabgar | Engineer, Builder, Thinker",
+  description: "Software Developer at Jaguar Land Rover. I build embedded systems, full-stack apps, and blockchain platforms. IIT Kanpur alumna who thinks about code, nature, and the systems that run inside people.",
+  keywords: ["software developer", "embedded systems", "Jaguar Land Rover", "IIT Kanpur", "systems thinker", "Saloni Dabgar", "portfolio", "full-stack", "blockchain"],
   authors: [{ name: "Saloni Dabgar" }],
   creator: "Saloni Dabgar",
   openGraph: {
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://salonidabgar.com",
     siteName: "Saloni Dabgar",
-    title: "Saloni Dabgar | Software Developer",
-    description: "Full-stack software developer crafting embedded systems, blockchain solutions, and modern web apps.",
+    title: "Saloni Dabgar | Engineer, Builder, Thinker",
+    description: "I write software that runs inside Jaguar Land Rover vehicles. I study the systems that run inside people.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saloni Dabgar | Software Developer",
-    description: "Full-stack software developer crafting embedded systems, blockchain solutions, and modern web apps.",
+    title: "Saloni Dabgar | Engineer, Builder, Thinker",
+    description: "I write software that runs inside Jaguar Land Rover vehicles. I study the systems that run inside people.",
     creator: "@salonidabgar",
   },
   robots: {
