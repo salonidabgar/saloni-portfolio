@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { BlurReveal } from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
+import SkillConstellation from "@/components/SkillConstellation";
 
 const featuredProjects = [
   {
@@ -311,6 +312,32 @@ export default function Home() {
               </BlurReveal>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== SKILLS CONSTELLATION ===== */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[var(--surface)]" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <BlurReveal>
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <span className="text-xs font-mono text-[var(--accent)] tracking-wider block mb-3">SKILLS</span>
+                <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                  How it all <span className="text-accent-serif">connects</span>
+                </h2>
+              </div>
+              <p className="hidden md:block text-sm text-[var(--muted)] max-w-xs text-right">
+                Hover to explore. Each node is a skill, each line a project that used them together.
+              </p>
+            </div>
+          </BlurReveal>
+
+          <BlurReveal delay={0.2}>
+            <div className="glass-card rounded-2xl overflow-hidden">
+              <SkillConstellation />
+            </div>
+          </BlurReveal>
         </div>
       </section>
 
