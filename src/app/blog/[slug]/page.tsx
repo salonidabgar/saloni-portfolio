@@ -19,5 +19,7 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  return <BlogPostClient post={post} />;
+  const allPosts = getAllPosts();
+
+  return <BlogPostClient post={post} allPosts={allPosts} />;
 }

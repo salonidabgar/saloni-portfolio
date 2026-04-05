@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Mail, Search, Tag, Code2, Heart, Sprout, type LucideIcon } from "lucide-react";
+import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Search, Tag, Code2, Heart, Sprout, type LucideIcon } from "lucide-react";
 
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "Software Engineering": Code2,
@@ -17,15 +17,15 @@ function getCategoryIcon(category: string): LucideIcon {
 }
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog";
+import SplitText from "@/components/SplitText";
 import { BlurReveal } from "@/components/TextReveal";
 
 const CATEGORIES = [
-  { id: "all", label: "All Posts" },
-  { id: "Software Engineering", label: "Software Engineering" },
+  { id: "all", label: "All" },
+  { id: "Software Engineering", label: "Engineering" },
   { id: "Career", label: "Career" },
-  { id: "Health & Fitness", label: "Health & Fitness" },
-  { id: "Personal Growth", label: "Personal Growth" },
-  { id: "Code", label: "Code" },
+  { id: "Health & Fitness", label: "Fitness" },
+  { id: "Personal Growth", label: "Growth" },
 ];
 
 function formatDate(date: string) {
@@ -47,69 +47,60 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
         !searchQuery ||
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        post.category.toLowerCase().includes(searchQuery.toLowerCase());
+        post.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesCategory && matchesSearch;
     });
   }, [posts, activeCategory, searchQuery]);
 
-  const availableCategories = useMemo(() => {
-    const cats = new Set(posts.map((p) => p.category));
-    return CATEGORIES.filter((c) => c.id === "all" || cats.has(c.id));
-  }, [posts]);
-
-  const postCount = filteredPosts.length;
+  const featuredPost = filteredPosts[0];
+  const remainingPosts = filteredPosts.slice(1);
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="pt-16 pb-10 relative overflow-hidden">
+      {/* ===== EDITORIAL HERO ===== */}
+      <section className="pt-16 pb-8 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="max-w-6xl mx-auto px-6 relative">
           <BlurReveal>
             <span className="inline-block text-xs font-mono text-[var(--accent)] mb-4 tracking-wider">
-              THOUGHTS & IDEAS
+              ESSAYS & IDEAS
             </span>
           </BlurReveal>
-          <BlurReveal delay={0.1}>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-5 tracking-tight">
-              <span className="text-accent-serif">Thinking</span>
-            </h1>
-          </BlurReveal>
-          <BlurReveal delay={0.2}>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-5 tracking-tight">
+            <SplitText delay={0.2} stagger={0.03}>Thinking</SplitText>
+          </h1>
+          <BlurReveal delay={0.4}>
             <p className="text-[var(--muted-light)] text-lg leading-relaxed max-w-2xl">
-              Essays at the intersection of engineering, philosophy, nature, and the human experience.
+              What I think. How I think. Why I think. Essays at the intersection of
+              engineering, philosophy, fitness, and the human experience.
             </p>
           </BlurReveal>
         </div>
       </section>
 
-      {/* Search + Filters */}
+      {/* ===== SEARCH + FILTERS ===== */}
       <section className="relative py-4 border-b border-[var(--border)]">
         <div className="absolute inset-0 bg-[var(--background)]" />
         <div className="max-w-6xl mx-auto px-6 relative">
-          {/* Search bar */}
           <div className="relative mb-4">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--muted)]" />
             <input
               type="text"
-              placeholder="Search articles by title, tag, or keyword..."
+              placeholder="Search essays..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-11 pr-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors text-sm placeholder:text-[var(--muted)]"
             />
           </div>
-
-          {/* Category pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             <Tag className="w-3.5 h-3.5 text-[var(--muted)] flex-shrink-0" />
-            {availableCategories.map((cat) => (
+            {CATEGORIES.map((cat) => (
               <motion.button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === cat.id
-                    ? "bg-[var(--primary)] text-white"
+                    ? "bg-[var(--foreground)] text-[var(--background)]"
                     : "bg-[var(--surface)] text-[var(--muted-light)] border border-[var(--border)] hover:border-[var(--primary)]/40 hover:text-[var(--foreground)]"
                 }`}
                 whileTap={{ scale: 0.95 }}
@@ -121,19 +112,60 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
         </div>
       </section>
 
-      {/* Results count */}
-      <section className="pt-6 pb-2">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-sm text-[var(--muted)]">
-            {searchQuery || activeCategory !== "all"
-              ? `${postCount} article${postCount !== 1 ? "s" : ""} found`
-              : `${postCount} article${postCount !== 1 ? "s" : ""}`}
-          </p>
-        </div>
-      </section>
+      {/* ===== FEATURED ESSAY — FULL WIDTH HERO ===== */}
+      {featuredPost && (
+        <section className="py-8">
+          <div className="max-w-6xl mx-auto px-6">
+            <Link href={`/blog/${featuredPost.slug}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className={`group relative rounded-2xl overflow-hidden h-[360px] md:h-[420px] bg-gradient-to-br ${featuredPost.color}`}
+              >
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
 
-      {/* Blog Posts Grid */}
-      <section className="py-6 pb-16">
+                {/* Content overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 text-[10px] font-semibold rounded-full bg-white/15 backdrop-blur-sm text-white uppercase tracking-wider">
+                      {featuredPost.category}
+                    </span>
+                    <span className="text-white/50 text-xs flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      {featuredPost.readTime}
+                    </span>
+                  </div>
+
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1] mb-4 max-w-3xl group-hover:translate-x-1 transition-transform duration-500">
+                    {featuredPost.title}
+                  </h2>
+
+                  <p className="text-white/60 text-sm md:text-base max-w-2xl leading-relaxed mb-6 line-clamp-2">
+                    {featuredPost.excerpt}
+                  </p>
+
+                  <div className="flex items-center gap-4">
+                    <span className="text-white/40 text-xs flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {formatDate(featuredPost.date)}
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-white/80 font-medium text-sm group-hover:gap-3 transition-all">
+                      Read essay <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+
+                {/* Shimmer on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 shimmer" />
+              </motion.div>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* ===== REMAINING ESSAYS — EDITORIAL GRID ===== */}
+      <section className="py-8 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatePresence mode="wait">
             <motion.div
@@ -142,155 +174,77 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 gap-6"
+              className="space-y-4"
             >
-              {filteredPosts.map((post, index) => (
-                <motion.article
-                  key={post.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
-                  className={filteredPosts.length % 2 === 1 && index === filteredPosts.length - 1 ? "md:col-span-2" : ""}
-                >
-                  <Link href={`/blog/${post.slug}`}>
-                    <motion.div
-                      className="group h-full flex flex-col rounded-2xl glass-card overflow-hidden hover:border-[var(--border-hover)] transition-all"
-                      whileHover={{ y: -4 }}
-                    >
-                      {/* Card header with gradient */}
-                      <div className={`h-40 bg-gradient-to-br ${post.color} relative overflow-hidden flex-shrink-0`}>
-                        <div className="absolute inset-0 bg-black/15" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          {(() => { const Icon = getCategoryIcon(post.category); return (
-                            <motion.div
-                              className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center"
-                              animate={{ y: [0, -4, 0] }}
-                              transition={{ duration: 4, repeat: Infinity, delay: index * 0.2 }}
-                            >
-                              <Icon className="w-7 h-7 text-white" />
-                            </motion.div>
-                          ); })()}
-                        </div>
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer" />
-
-                        {/* Category badge */}
-                        <div className="absolute top-3 left-3">
-                          <span className="px-2.5 py-1 text-[10px] font-semibold rounded-full bg-black/30 backdrop-blur-sm text-white uppercase tracking-wider">
-                            {post.category}
-                          </span>
+              {remainingPosts.map((post, index) => {
+                const Icon = getCategoryIcon(post.category);
+                return (
+                  <motion.article
+                    key={post.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.06, duration: 0.5 }}
+                  >
+                    <Link href={`/blog/${post.slug}`}>
+                      <motion.div
+                        className="group flex flex-col md:flex-row md:items-center gap-6 p-6 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all"
+                        whileHover={{ x: 4 }}
+                      >
+                        {/* Icon / visual */}
+                        <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${post.color} flex items-center justify-center`}>
+                          <Icon className="w-7 h-7 text-white" />
                         </div>
 
-                        {/* Read time badge */}
-                        <div className="absolute top-3 right-3">
-                          <span className="px-2.5 py-1 text-[10px] font-medium rounded-full bg-black/30 backdrop-blur-sm text-white/80 flex items-center gap-1">
-                            <Clock className="w-2.5 h-2.5" />
-                            {post.readTime}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Card body */}
-                      <div className="p-6 flex flex-col flex-1">
-                        <div className="flex items-center gap-1.5 text-xs text-[var(--muted)] mb-3">
-                          <Calendar className="w-3 h-3" />
-                          {formatDate(post.date)}
-                        </div>
-
-                        <h2 className="text-xl font-display font-bold mb-3 group-hover:text-[var(--primary-light)] transition-colors leading-snug line-clamp-2">
-                          {post.title}
-                        </h2>
-
-                        <p className="text-[var(--muted-light)] text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
-                          {post.excerpt}
-                        </p>
-
-                        <div className="flex flex-wrap gap-1.5 mb-4">
-                          {post.tags.slice(0, 3).map((tag) => (
-                            <span key={tag} className="px-2 py-0.5 text-[10px] rounded-md bg-[var(--surface)] text-[var(--muted)] border border-[var(--border)]">
-                              {tag}
+                        {/* Text */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="text-[10px] font-medium text-[var(--accent)] uppercase tracking-wider">
+                              {post.category}
                             </span>
-                          ))}
-                          {post.tags.length > 3 && (
-                            <span className="px-2 py-0.5 text-[10px] rounded-md text-[var(--muted)]">
-                              +{post.tags.length - 3}
+                            <span className="text-[var(--muted)] text-[10px]">{formatDate(post.date)}</span>
+                            <span className="text-[var(--muted)] text-[10px] flex items-center gap-0.5">
+                              <Clock className="w-2.5 h-2.5" />
+                              {post.readTime}
                             </span>
-                          )}
+                          </div>
+
+                          <h3 className="text-lg md:text-xl font-display font-bold group-hover:text-[var(--primary-light)] transition-colors leading-snug mb-2">
+                            {post.title}
+                          </h3>
+
+                          <p className="text-sm text-[var(--muted-light)] leading-relaxed line-clamp-2">
+                            {post.excerpt}
+                          </p>
                         </div>
 
-                        <span className="inline-flex items-center gap-2 text-[var(--primary-light)] font-medium text-sm mt-auto group-hover:gap-3 transition-all">
-                          Read Article
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </span>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </motion.article>
-              ))}
+                        {/* Arrow */}
+                        <ArrowRight className="hidden md:block w-5 h-5 text-[var(--muted)] group-hover:text-[var(--primary-light)] group-hover:translate-x-1 transition-all flex-shrink-0" />
+                      </motion.div>
+                    </Link>
+                  </motion.article>
+                );
+              })}
             </motion.div>
           </AnimatePresence>
 
           {filteredPosts.length === 0 && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
               <BookOpen className="w-14 h-14 mx-auto mb-5 text-[var(--muted)]" />
-              <h3 className="text-xl font-display font-semibold mb-2">
-                {searchQuery ? "No articles found" : "No posts in this category yet"}
-              </h3>
+              <h3 className="text-xl font-display font-semibold mb-2">No essays found</h3>
               <p className="text-[var(--muted)] text-sm mb-6">
                 {searchQuery
-                  ? `No results for "${searchQuery}". Try a different search.`
-                  : "Check back soon or explore other categories."}
+                  ? `No results for "${searchQuery}".`
+                  : "Check back soon."}
               </p>
               <button
                 onClick={() => { setActiveCategory("all"); setSearchQuery(""); }}
                 className="px-5 py-2.5 rounded-full text-sm font-medium border border-[var(--border)] hover:border-[var(--primary)] text-[var(--muted-light)] hover:text-[var(--foreground)] transition-all"
               >
-                View All Posts
+                View All
               </button>
             </motion.div>
           )}
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--surface)]" />
-        <div className="absolute inset-0 pattern-dots" />
-
-        <div className="max-w-4xl mx-auto px-6 relative">
-          <BlurReveal>
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] mb-6">
-                <Mail className="w-7 h-7 text-white" />
-              </div>
-
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Stay <span className="text-accent-serif">updated</span>
-              </h2>
-              <p className="text-[var(--muted)] mb-8 max-w-md mx-auto">
-                Get notified when I publish new articles on engineering, wellness, and personal growth.
-              </p>
-
-              <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-5 py-3.5 rounded-full bg-[var(--background)] border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors text-sm"
-                />
-                <motion.button
-                  type="submit"
-                  className="px-7 py-3.5 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-full flex items-center justify-center gap-2 text-sm"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Subscribe
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </motion.button>
-              </form>
-
-              <p className="text-[11px] text-[var(--muted)] mt-4">No spam, ever. Unsubscribe anytime.</p>
-            </div>
-          </BlurReveal>
         </div>
       </section>
     </div>
