@@ -15,7 +15,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
   { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blog" },
+  { name: "Thinking", href: "/blog" },
 ];
 
 export default function Footer() {
@@ -31,7 +31,7 @@ export default function Footer() {
             <div className="md:col-span-5">
               <Link href="/" className="inline-flex items-center gap-3 mb-4">
                 <div className="relative w-9 h-9">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] opacity-80" />
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] opacity-80" />
                   <div className="absolute inset-[2px] rounded-[6px] bg-[var(--surface)] flex items-center justify-center">
                     <span className="font-display text-sm font-bold gradient-text">S</span>
                   </div>
@@ -40,8 +40,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-[var(--muted)] text-sm mb-6 max-w-xs sm:max-w-sm leading-relaxed">
-                Software Developer crafting embedded systems, full-stack applications, and blockchain solutions.
-                Always learning, always building.
+                Engineer by training. Builder by instinct. Philosopher by curiosity. Athlete by practice.
               </p>
             </div>
 

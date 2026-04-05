@@ -38,7 +38,7 @@ export default function Starfield() {
       opacity: Math.random() * 0.4 + 0.3,
       delay: Math.random() * 5,
       duration: Math.random() * 5 + 3,
-      color: Math.random() > 0.5 ? "rgba(139, 92, 246, 0.8)" : "rgba(34, 211, 238, 0.7)",
+      color: Math.random() > 0.5 ? "rgba(90, 158, 120, 0.7)" : "rgba(212, 168, 83, 0.6)",
     }));
 
     layers.push(...smallStars.map((s) => ({ ...s, color: "rgba(255, 255, 255, 0.7)" })));

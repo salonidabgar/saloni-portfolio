@@ -10,7 +10,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
   { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blog" },
+  { name: "Thinking", href: "/blog" },
 ];
 
 export default function Navigation() {
@@ -35,7 +35,7 @@ export default function Navigation() {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] z-[60] origin-left bg-gradient-to-r from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)]"
+        className="fixed top-0 left-0 right-0 h-[2px] z-[60] origin-left bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--primary-light)]"
         style={{ scaleX }}
       />
 
@@ -60,7 +60,7 @@ export default function Navigation() {
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute inset-[2px] rounded-[10px] bg-[var(--background)] flex items-center justify-center">
                   <span className="font-display text-lg font-bold gradient-text">S</span>
                 </div>

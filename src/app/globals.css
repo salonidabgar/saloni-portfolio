@@ -2,56 +2,56 @@
 @import "tailwindcss";
 
 /* ============================================
-   DARK CINEMATIC DESIGN SYSTEM 2026
-   Award-winning portfolio aesthetic
+   ORGANIC DARK DESIGN SYSTEM 2026
+   Systems thinker — code, nature, mind, body
    ============================================ */
 
 :root {
-  /* Dark-first palette — deep indigo-tinted night sky */
-  --background: #030712;
-  --background-secondary: #060d1e;
-  --foreground: #f0f0f5;
-  --foreground-muted: #d4d4e0;
+  /* Dark-first palette — warm near-black, not cold indigo */
+  --background: #0a0a0a;
+  --background-secondary: #0f0f0e;
+  --foreground: #f5f0eb;
+  --foreground-muted: #d9d3ca;
 
-  /* Primary - Electric Violet */
-  --primary: #8b5cf6;
-  --primary-light: #a78bfa;
-  --primary-dark: #7c3aed;
-  --primary-glow: rgba(139, 92, 246, 0.4);
+  /* Primary - Forest Green */
+  --primary: #3d7a5a;
+  --primary-light: #5a9e78;
+  --primary-dark: #2d5a3d;
+  --primary-glow: rgba(61, 122, 90, 0.4);
 
   /* Accent - Warm Amber */
-  --accent: #f59e0b;
-  --accent-warm: #fbbf24;
-  --accent-glow: rgba(245, 158, 11, 0.3);
+  --accent: #d4a853;
+  --accent-warm: #e8c47a;
+  --accent-glow: rgba(212, 168, 83, 0.3);
 
-  /* Secondary - Cyan */
-  --secondary: #22d3ee;
-  --secondary-dark: #06b6d4;
+  /* Secondary - Sage */
+  --secondary: #8faa8b;
+  --secondary-dark: #6e8c6a;
 
-  /* Neutrals */
-  --muted: #6b7194;
-  --muted-light: #9ba2c0;
-  --border: rgba(148, 163, 230, 0.08);
-  --border-light: rgba(148, 163, 230, 0.04);
-  --border-hover: rgba(148, 163, 230, 0.15);
+  /* Neutrals — warm grays, not blue-grays */
+  --muted: #7a7a6e;
+  --muted-light: #a8a89a;
+  --border: rgba(180, 175, 160, 0.1);
+  --border-light: rgba(180, 175, 160, 0.05);
+  --border-hover: rgba(180, 175, 160, 0.18);
 
-  /* Surfaces — indigo-tinted darks */
-  --card: #0a1228;
-  --card-hover: #0f1a35;
-  --surface: #081020;
-  --surface-elevated: #111d3a;
+  /* Surfaces — warm darks */
+  --card: #111110;
+  --card-hover: #1a1a18;
+  --surface: #0e0e0d;
+  --surface-elevated: #1c1c1a;
 
-  /* Shadows & Glows — tinted to match indigo base */
-  --shadow-sm: 0 1px 2px rgba(2, 4, 15, 0.6);
-  --shadow-md: 0 4px 16px rgba(2, 4, 15, 0.6);
-  --shadow-lg: 0 12px 40px rgba(2, 4, 15, 0.7);
-  --shadow-xl: 0 24px 60px rgba(2, 4, 15, 0.85);
-  --glow-primary: 0 0 80px rgba(139, 92, 246, 0.2);
-  --glow-accent: 0 0 60px rgba(245, 158, 11, 0.15);
-  --glow-cyan: 0 0 60px rgba(34, 211, 238, 0.15);
+  /* Shadows & Glows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.85);
+  --glow-primary: 0 0 80px rgba(61, 122, 90, 0.15);
+  --glow-accent: 0 0 60px rgba(212, 168, 83, 0.12);
+  --glow-sage: 0 0 60px rgba(143, 170, 139, 0.1);
 
   /* Typography */
-  --font-display: 'Space Grotesk', 'Instrument Serif', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -81,6 +81,7 @@
   --color-accent-warm: var(--accent-warm);
   --color-secondary: var(--secondary);
   --color-secondary-dark: var(--secondary-dark);
+  --color-sage: var(--secondary);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
   --color-border: var(--border);
@@ -129,12 +130,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 230, 0.12);
+  background: rgba(180, 175, 160, 0.12);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 230, 0.25);
+  background: rgba(180, 175, 160, 0.25);
 }
 
 /* Hide scrollbar for filter pills */
@@ -165,7 +166,7 @@ body {
 
 /* Gradient text effects */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-warm) 50%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -194,28 +195,28 @@ body {
 
 /* --- Liquid Glass / Glassmorphism 2.0 --- */
 .glass {
-  background: rgba(148, 163, 230, 0.04);
+  background: rgba(180, 175, 160, 0.04);
   backdrop-filter: blur(24px) saturate(150%);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid rgba(148, 163, 230, 0.08);
+  border: 1px solid rgba(180, 175, 160, 0.08);
 }
 
 .glass-strong {
-  background: rgba(148, 163, 230, 0.06);
+  background: rgba(180, 175, 160, 0.06);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
-  border: 1px solid rgba(148, 163, 230, 0.1);
+  border: 1px solid rgba(180, 175, 160, 0.1);
 }
 
 .glass-card {
   background: linear-gradient(
     135deg,
-    rgba(148, 163, 230, 0.05) 0%,
-    rgba(148, 163, 230, 0.02) 100%
+    rgba(180, 175, 160, 0.05) 0%,
+    rgba(180, 175, 160, 0.02) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(148, 163, 230, 0.08);
+  border: 1px solid rgba(180, 175, 160, 0.08);
 }
 
 /* --- Noise / Grain Texture --- */
@@ -260,8 +261,8 @@ body {
 .aurora::before {
   background: radial-gradient(
     ellipse at 30% 50%,
-    rgba(139, 92, 246, 0.12) 0%,
-    rgba(34, 211, 238, 0.06) 40%,
+    rgba(61, 122, 90, 0.1) 0%,
+    rgba(143, 170, 139, 0.05) 40%,
     transparent 70%
   );
   animation: auroraShift1 18s ease-in-out infinite;
@@ -270,8 +271,8 @@ body {
 .aurora::after {
   background: radial-gradient(
     ellipse at 70% 40%,
-    rgba(34, 211, 238, 0.08) 0%,
-    rgba(245, 158, 11, 0.04) 40%,
+    rgba(143, 170, 139, 0.06) 0%,
+    rgba(212, 168, 83, 0.04) 40%,
     transparent 70%
   );
   animation: auroraShift2 22s ease-in-out infinite;
@@ -305,16 +306,16 @@ body {
 /* --- Mesh Gradient Backgrounds --- */
 .mesh-gradient {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(34, 211, 238, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(61, 122, 90, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(143, 170, 139, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(212, 168, 83, 0.04) 0%, transparent 50%);
 }
 
 .mesh-gradient-strong {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(61, 122, 90, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(143, 170, 139, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(212, 168, 83, 0.05) 0%, transparent 50%);
 }
 
 /* --- Bento Grid --- */
@@ -340,7 +341,7 @@ body {
   inset: 0;
   opacity: 0;
   transition: opacity 0.5s ease;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(61, 122, 90, 0.05) 0%, transparent 60%);
 }
 
 .bento-cell:hover::before {
@@ -351,8 +352,8 @@ body {
 .card-glass {
   background: linear-gradient(
     135deg,
-    rgba(148, 163, 230, 0.04) 0%,
-    rgba(148, 163, 230, 0.01) 100%
+    rgba(180, 175, 160, 0.04) 0%,
+    rgba(180, 175, 160, 0.01) 100%
   );
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -363,8 +364,8 @@ body {
   border-color: var(--border-hover);
   background: linear-gradient(
     135deg,
-    rgba(148, 163, 230, 0.06) 0%,
-    rgba(148, 163, 230, 0.02) 100%
+    rgba(180, 175, 160, 0.06) 0%,
+    rgba(180, 175, 160, 0.02) 100%
   );
   transform: translateY(-4px);
 }
@@ -396,14 +397,14 @@ body {
 
 /* --- Dot Grid Pattern --- */
 .pattern-dots {
-  background-image: radial-gradient(rgba(148, 163, 230, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(180, 175, 160, 0.06) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .pattern-grid {
   background-image:
-    linear-gradient(rgba(148, 163, 230, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 230, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(180, 175, 160, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 175, 160, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -449,7 +450,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(148, 163, 230, 0.04) 50%,
+    rgba(180, 175, 160, 0.04) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -542,7 +543,7 @@ body {
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
-  background: rgba(148, 163, 230, 0.05);
+  background: rgba(180, 175, 160, 0.05);
   color: var(--muted-light);
   border: 1px solid var(--border);
   transition: all 0.3s ease;
@@ -550,8 +551,8 @@ body {
 }
 
 .tag:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.2);
+  background: rgba(61, 122, 90, 0.1);
+  border-color: rgba(61, 122, 90, 0.2);
   color: var(--primary-light);
 }
 
@@ -638,7 +639,7 @@ button:focus-visible {
   margin: 1.5rem 0;
   font-style: italic;
   color: var(--muted-light);
-  background: rgba(139, 92, 246, 0.03);
+  background: rgba(61, 122, 90, 0.03);
   padding: 1rem 1.25rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
@@ -646,7 +647,7 @@ button:focus-visible {
 .blog-prose a {
   color: var(--primary-light);
   text-decoration: none;
-  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  border-bottom: 1px solid rgba(61, 122, 90, 0.3);
   transition: border-color 0.3s ease;
 }
 
@@ -667,7 +668,7 @@ button:focus-visible {
   padding: 0.2em 0.5em;
   border-radius: 4px;
   border: 1px solid var(--border);
-  color: var(--secondary);
+  color: var(--accent-warm);
 }
 
 .blog-prose pre {
