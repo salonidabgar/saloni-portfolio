@@ -7,7 +7,7 @@ category: "Health & Fitness"
 tags: ["Health", "Weight Loss", "Personal Growth", "Fitness"]
 featured: true
 emoji: "💪"
-color: "from-emerald-500 to-teal-500"
+color: "from-amber-700 to-amber-500"
 ---
 
 For years, I carried more than just weight. I carried exhaustion, brain fog, and the quiet frustration of knowing I wasn't operating at my full potential. My body felt like excess baggage—slowing down my thoughts, limiting what I could accomplish in a day, and chipping away at my confidence one health scare at a time.

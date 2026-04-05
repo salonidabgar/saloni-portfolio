@@ -80,9 +80,9 @@ export default function CustomCursor() {
           style={{
             width: "100%",
             height: "100%",
-            borderColor: isHovering ? "rgba(139, 92, 246, 0.5)" : "rgba(148, 163, 230, 0.2)",
+            borderColor: isHovering ? "rgba(90, 158, 120, 0.5)" : "rgba(180, 175, 160, 0.2)",
             boxShadow: isHovering
-              ? "0 0 20px rgba(139, 92, 246, 0.15), inset 0 0 20px rgba(139, 92, 246, 0.05)"
+              ? "0 0 20px rgba(90, 158, 120, 0.15), inset 0 0 20px rgba(90, 158, 120, 0.05)"
               : "none",
           }}
         />
@@ -109,7 +109,7 @@ export default function CustomCursor() {
           style={{
             width: "100%",
             height: "100%",
-            backgroundColor: isHovering ? "rgba(139, 92, 246, 0.9)" : "rgba(148, 163, 230, 0.5)",
+            backgroundColor: isHovering ? "rgba(90, 158, 120, 0.9)" : "rgba(180, 175, 160, 0.5)",
           }}
         />
       </motion.div>

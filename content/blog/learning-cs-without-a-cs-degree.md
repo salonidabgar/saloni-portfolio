@@ -7,7 +7,7 @@ category: "Software Engineering"
 tags: ["Computer Science", "Career Switch", "Self-Learning", "Software Engineering"]
 featured: true
 emoji: "🧠"
-color: "from-indigo-500 to-cyan-500"
+color: "from-stone-700 to-stone-500"
 ---
 
 I have a confession.

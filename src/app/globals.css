@@ -505,8 +505,8 @@ body {
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  background: rgba(34, 211, 238, 0.08);
-  border: 1px solid rgba(34, 211, 238, 0.15);
+  background: rgba(90, 158, 120, 0.08);
+  border: 1px solid rgba(90, 158, 120, 0.15);
   border-radius: 100px;
   color: var(--secondary);
   font-size: 13px;
@@ -521,7 +521,7 @@ body {
   background: var(--secondary);
   border-radius: 50%;
   animation: pulse-subtle 2s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 8px rgba(90, 158, 120, 0.5);
 }
 
 /* --- Link underline --- */

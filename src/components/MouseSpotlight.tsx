@@ -12,8 +12,8 @@ export default function MouseSpotlight() {
 
   const background = useMotionTemplate`
     radial-gradient(800px circle at ${smoothX}px ${smoothY}px,
-      rgba(139, 92, 246, 0.06),
-      rgba(34, 211, 238, 0.03) 40%,
+      rgba(61, 122, 90, 0.04),
+      rgba(212, 168, 83, 0.02) 40%,
       transparent 70%)
   `;
 

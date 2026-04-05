@@ -7,7 +7,7 @@ category: "Personal Growth"
 tags: ["Yoga", "Spirituality", "Mindfulness", "Personal Growth"]
 featured: true
 emoji: "🧘‍♀️"
-color: "from-purple-500 to-pink-500"
+color: "from-emerald-800 to-emerald-600"
 ---
 
 ## More Than Movement
