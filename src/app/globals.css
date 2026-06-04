@@ -708,6 +708,14 @@ button:focus-visible {
   margin: 2.5rem 0;
 }
 
+.blog-prose .credit {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--muted);
+}
+
 .blog-prose code {
   font-family: var(--font-mono);
   font-size: 0.9em;
