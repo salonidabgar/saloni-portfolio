@@ -1,7 +1,7 @@
 ---
 title: "The Ripples You Keep Making — Yoga Sutra 1.2"
 excerpt: "योगश्चित्तवृत्तिनिरोधः — Yoga is the stilling of the whirlpools of the mind. We are the sum of what we've stored. And every time we revisit a memory, we quietly rewrite it. My swadhyaya on the second sutra."
-date: "2026-06-08"
+date: "2026-06-09"
 readTime: "4 min read"
 category: "Personal Growth"
 tags: ["Yoga Sutras", "Patanjali", "Swadhyaya", "Spirituality", "Philosophy"]
