@@ -10,6 +10,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://salonidabgar.com"),
   title: "Saloni Dabgar | Engineer, Builder, Thinker",
   description: "Software Developer at Jaguar Land Rover. I build embedded systems, full-stack apps, and blockchain platforms. IIT Kanpur alumna who thinks about code, nature, and the systems that run inside people.",
   keywords: ["software developer", "embedded systems", "Jaguar Land Rover", "IIT Kanpur", "systems thinker", "Saloni Dabgar", "portfolio", "full-stack", "blockchain"],

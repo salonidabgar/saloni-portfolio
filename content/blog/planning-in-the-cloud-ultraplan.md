@@ -8,6 +8,7 @@ tags: ["Claude Code", "AI Engineering", "Developer Tools", "Workflow", "LLMs"]
 featured: true
 emoji: "🛰️"
 color: "#6366f1"
+image: "/images/blog/ultraplan/og.png"
 ---
 
 For the longest time, my workflow had this dumb little dead zone built into it.

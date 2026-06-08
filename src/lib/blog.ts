@@ -43,6 +43,7 @@ export interface BlogPost {
   featured: boolean;
   emoji: string;
   color: string;
+  image?: string;
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -69,6 +70,7 @@ export function getAllPosts(): BlogPost[] {
       featured: data.featured ?? false,
       emoji: data.emoji,
       color: data.color,
+      image: data.image ?? undefined,
     };
   });
 
@@ -103,6 +105,7 @@ export async function getPostBySlug(
     featured: data.featured ?? false,
     emoji: data.emoji,
     color: data.color,
+    image: data.image ?? undefined,
     contentHtml,
   };
 }
