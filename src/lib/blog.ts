@@ -44,6 +44,7 @@ export interface BlogPost {
   emoji: string;
   color: string;
   image?: string;
+  heroImage?: string;
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -71,6 +72,7 @@ export function getAllPosts(): BlogPost[] {
       emoji: data.emoji,
       color: data.color,
       image: data.image ?? undefined,
+      heroImage: data.heroImage ?? undefined,
     };
   });
 
@@ -106,6 +108,7 @@ export async function getPostBySlug(
     emoji: data.emoji,
     color: data.color,
     image: data.image ?? undefined,
+    heroImage: data.heroImage ?? undefined,
     contentHtml,
   };
 }

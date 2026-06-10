@@ -97,6 +97,15 @@ export default function BlogPostClient({
 
       {/* ===== CINEMATIC HERO ===== */}
       <div ref={heroRef} className={`relative h-[70vh] md:h-[80vh] overflow-hidden bg-gradient-to-br ${post.color}`}>
+        {post.heroImage && (
+          <motion.img
+            src={post.heroImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105"
+            style={{ y: heroY }}
+          />
+        )}
         <motion.div className="absolute inset-0 bg-black/40" style={{ y: heroY }} />
         <motion.div
           className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
@@ -111,11 +120,11 @@ export default function BlogPostClient({
               {post.category}
             </span>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.1] tracking-tight max-w-4xl mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto mb-6">
               {post.title}
             </h1>
 
-            <p className="text-white/70 text-lg max-w-2xl leading-relaxed mb-8">
+            <p className="text-white/70 text-lg max-w-2xl mx-auto text-center leading-relaxed mb-8">
               {post.excerpt}
             </p>
 
