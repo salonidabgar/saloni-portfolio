@@ -121,9 +121,23 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className={`group relative rounded-2xl overflow-hidden h-[360px] md:h-[420px] bg-gradient-to-br ${featuredPost.color}`}
+                className={`group relative rounded-2xl overflow-hidden h-[360px] md:h-[420px] ${featuredPost.image ? "bg-[var(--surface)] border border-[var(--border)]" : `bg-gradient-to-br ${featuredPost.color}`}`}
               >
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
+                {featuredPost.image && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                  />
+                )}
+                <div
+                  className={`absolute inset-0 transition-colors duration-500 ${
+                    featuredPost.image
+                      ? "bg-gradient-to-t from-black/70 via-black/5 to-transparent"
+                      : "bg-black/30 group-hover:bg-black/20"
+                  }`}
+                />
 
                 {/* Content overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
@@ -137,13 +151,17 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1] mb-4 max-w-3xl group-hover:translate-x-1 transition-transform duration-500">
-                    {featuredPost.title}
-                  </h2>
+                  {!featuredPost.image && (
+                    <>
+                      <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1] mb-4 max-w-3xl group-hover:translate-x-1 transition-transform duration-500">
+                        {featuredPost.title}
+                      </h2>
 
-                  <p className="text-white/60 text-sm md:text-base max-w-2xl leading-relaxed mb-6 line-clamp-2">
-                    {featuredPost.excerpt}
-                  </p>
+                      <p className="text-white/60 text-sm md:text-base max-w-2xl leading-relaxed mb-6 line-clamp-2">
+                        {featuredPost.excerpt}
+                      </p>
+                    </>
+                  )}
 
                   <div className="flex items-center gap-4">
                     <span className="text-white/40 text-xs flex items-center gap-1">
@@ -191,10 +209,21 @@ export default function BlogPageClient({ posts }: { posts: BlogPost[] }) {
                         className="group flex flex-col md:flex-row md:items-center gap-6 p-6 rounded-2xl glass-card hover:border-[var(--border-hover)] transition-all"
                         whileHover={{ x: 4 }}
                       >
-                        {/* Icon / visual */}
-                        <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${post.color} flex items-center justify-center`}>
-                          <Icon className="w-7 h-7 text-white" />
-                        </div>
+                        {/* Cover / visual */}
+                        {post.image ? (
+                          <div className="flex-shrink-0 w-full md:w-44 h-40 md:h-24 rounded-xl overflow-hidden bg-[var(--surface)] border border-[var(--border)]">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                            />
+                          </div>
+                        ) : (
+                          <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${post.color} flex items-center justify-center`}>
+                            <Icon className="w-7 h-7 text-white" />
+                          </div>
+                        )}
 
                         {/* Text */}
                         <div className="flex-1 min-w-0">
