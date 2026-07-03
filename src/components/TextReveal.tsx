@@ -8,7 +8,6 @@ interface TextRevealProps {
   className?: string;
   delay?: number;
   staggerDelay?: number;
-  as?: "h1" | "h2" | "h3" | "p" | "span";
 }
 
 export default function TextReveal({
@@ -16,7 +15,6 @@ export default function TextReveal({
   className = "",
   delay = 0,
   staggerDelay = 0.03,
-  as: Component = "span",
 }: TextRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });

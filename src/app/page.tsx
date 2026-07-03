@@ -156,7 +156,7 @@ export default function Home() {
               </MagneticButton>
             </Link>
 
-            <Link href="/thinking">
+            <Link href="/blog">
               <MagneticButton
                 className="px-7 py-3.5 rounded-full font-medium text-sm border border-[var(--border)] hover:border-[var(--primary)] hover:text-[var(--primary-light)] transition-all"
                 data-cursor="Read"
@@ -174,15 +174,16 @@ export default function Home() {
             className="flex items-center gap-3 mt-12"
           >
             {[
-              { icon: Github, href: "https://github.com/salonidabgar" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/saloni-dabgar-695864194/" },
-              { icon: Twitter, href: "https://twitter.com/salonidabgar" },
-            ].map(({ icon: Icon, href }, i) => (
+              { icon: Github, href: "https://github.com/salonidabgar", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/saloni-dabgar-695864194/", label: "LinkedIn" },
+              { icon: Twitter, href: "https://twitter.com/salonidabgar", label: "Twitter" },
+            ].map(({ icon: Icon, href, label }) => (
               <a
-                key={i}
+                key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={label}
                 className="p-2 rounded-lg text-[var(--muted)] hover:text-[var(--primary-light)] transition-colors"
               >
                 <Icon className="w-4 h-4" />
@@ -284,7 +285,7 @@ export default function Home() {
                     View my journey <ArrowUpRight className="w-4 h-4" />
                   </Link>
                   <Link
-                    href="/thinking"
+                    href="/blog"
                     className="inline-flex items-center gap-2 text-[var(--muted-light)] font-medium hover:text-[var(--foreground)] transition-colors"
                   >
                     Read my thinking <ArrowUpRight className="w-4 h-4" />

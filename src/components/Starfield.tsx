@@ -1,14 +1,24 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
+interface Star {
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  delay: number;
+  duration: number;
+  color: string;
+}
 
 export default function Starfield() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [stars, setStars] = useState<Star[]>([]);
 
-  const stars = useMemo(() => {
-    if (!mounted) return [];
-    const layers = [];
+  // Generate stars on the client only, after mount, to stay SSR-safe and
+  // keep render pure (Math.random must not run during render).
+  useEffect(() => {
+    const layers: Star[] = [];
 
     // Layer 1: Small dim stars
     const smallStars = Array.from({ length: 80 }, () => ({
@@ -45,10 +55,10 @@ export default function Starfield() {
     layers.push(...mediumStars.map((s) => ({ ...s, color: "rgba(255, 255, 255, 0.85)" })));
     layers.push(...accentStars);
 
-    return layers;
-  }, [mounted]);
+    setStars(layers);
+  }, []);
 
-  if (!mounted) return <div className="starfield-container fixed inset-0 z-[0] pointer-events-none overflow-hidden" />;
+  if (stars.length === 0) return <div className="starfield-container fixed inset-0 z-[0] pointer-events-none overflow-hidden" />;
 
   return (
     <div className="starfield-container fixed inset-0 z-[0] pointer-events-none overflow-hidden">
